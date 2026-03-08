@@ -33,7 +33,7 @@ main {
             background: linear-gradient(rgba(252, 252, 252, 0.2), rgba(0, 0, 0, 0.2));
             width: 100vw;
             height: 100vh;
-            
+
 
 
             .carrousel-item {
@@ -50,11 +50,11 @@ main {
                 background-position: center;
                 background-repeat: no-repeat;
                 backdrop-filter: blur(10px);
-                transition:  ease-in-out;
+                transition: ease-in-out;
                 position: absolute;
                 top: 0;
                 left: 0;
-                transition:  0.4s ease-in-out opacity;
+                transition: 0.4s ease-in-out opacity;
 
                 .carrousel-body {
                     margin-top: 30vh;
@@ -89,12 +89,15 @@ main {
                 /* opcional para contraste */
             }
 
-            .carrousel-item.active{
+            .carrousel-item.active {
                 display: flex;
                 opacity: 1;
                 /* transition: all 0.4s ease-in-out; */
             }
         }
+
+
+
 
         .next-buttons-div {
             width: 100vw;
@@ -152,16 +155,58 @@ main {
                 background-color: rgba(255, 255, 255, 0.4);
                 border: none;
             }
-            .circle-button.active{
+
+            .circle-button.active {
                 background-color: white;
                 scale: 1.5;
             }
 
-            .circle-button:hover{
+            .circle-button:hover {
                 scale: 2;
             }
         }
 
+    }
+
+}
+
+
+@media (max-width:768px) {
+
+    main {
+        
+
+        .carrousel{
+
+
+            .carrousel-controllers{
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+                justify-content: flex-end;
+
+                .next-buttons-div{
+                    width: 100vw;
+                    height: 95vh;
+                    display: flex;
+                    justify-content:flex-start;
+                    align-items: flex-end;
+
+                    .next-button{
+                        width: 30px;
+                        height: 30px;
+                        font-size: 20px;
+
+                    }
+                }
+
+                .select-buttons-div{
+                    display: none;
+                }
+            }
+        }
+    
+    
     }
 
 }
