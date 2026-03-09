@@ -39,7 +39,6 @@ main {
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                backdrop-filter: blur(10px);
                 transition: ease-in-out;
                 position: absolute;
                 top: 0;
@@ -48,15 +47,19 @@ main {
 
 
                 .carrousel-body {
+                    display: flex;
+                    flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    font-family: "Inter", sans-serif;
+                    gap: 2px;
 
                     p {
                         position: relative;
                         font-family: "Inter", sans-serif;
-                        font-size: 20px;
                         color: #7366fe;
-                        font-weight: bolder;
+                        font-weight:bolder;
+                        
 
                     }
 
@@ -68,7 +71,20 @@ main {
 
                     }
 
+                    button{
+                        position: relative;
+                        background-color: #462eff;
+                        padding: 15px;
+                        font-size: 15px;
+                        border: none;
+                        border-radius: 50px;
+                        font-weight: bolder;
+                        color: white;
+                        align-self: center;
+                    }
+
                 }
+
 
             }
 
@@ -76,7 +92,7 @@ main {
                 content: "";
                 position: absolute;
                 inset: 0;
-                backdrop-filter: blur(2px);
+                backdrop-filter: blur(4px);
                 background: rgba(0, 0, 0, 0.1);
                 /* opcional para contraste */
             }
@@ -88,15 +104,15 @@ main {
             }
 
             .carrousel-item-one{
-                background-image: url('../img/backgrounds/background1.avif');
+                background-image: url('../img/hero1.jpg');
                 
             }
-            .carrousel-item-one{
-                background-image: url('../img/backgrounds/background1.avif');
+            .carrousel-item-two{
+                background-image: url('../img/hero2.jpg');
                 
             }
-           .carrousel-item-one{
-                background-image: url('../img/backgrounds/background1.avif');
+           .carrousel-item-three{
+                background-image: url('../img/hero3.jpg');
                 
             }
 
@@ -179,13 +195,27 @@ main {
 }
 
 
-@media (max-width:768px) {
+@media (max-width:850px) {
 
     main {
         
-
+        
         .carrousel{
-
+            
+            .carrousel-elements-div{
+    
+                .carrousel-item{
+        
+                    .carrousel-body{
+        
+                        h1{
+                            font-size: 3rem;
+                        }
+        
+                    }
+                }
+            }
+    
 
             .carrousel-controllers{
                 display: flex;
