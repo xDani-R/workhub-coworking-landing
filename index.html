@@ -4,53 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style_navbar_FA.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <header id="header_principal" class="navbar navbar-expand-lg fixed-top navbar-glass">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="/assets/img/icon.png">CodeVoltProworking</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- ===================== NAVBAR ===================== -->
+    <!--
+        "navbar-expand-lg" → El navbar se colapsa en pantallas menores a lg (992px)
+        "fixed-top"        → Se queda fijo arriba al hacer scroll
+        "navbar-light"     → Iconos y toggler en color oscuro (para fondos claros)
+    -->
+    <header class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm">
+        <div class="container">
+            <!--
+                "navbar-brand" → Clase Bootstrap para el logo/nombre de la marca
+            -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="/assets/img/icon.png" height="32">
+                CodeVoltProworking
+            </a>
+
+            <!--
+                "navbar-toggler" → El botón hamburguesa que aparece en móvil
+                "data-bs-toggle" y "data-bs-target" → Le dicen a Bootstrap qué elemento colapsar/expandir
+            -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarPrincipal"
+                aria-controls="navbarPrincipal"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="flex-space">Espacios Flexibles</a>
+            </button>
+
+            <!--
+                "collapse navbar-collapse" → Este div se oculta/muestra al presionar el botón hamburguesa
+                El id debe coincidir con el "data-bs-target" del botón
+            -->
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <!--
+                    "ms-auto" → Empuja los items hacia la derecha (margin-start: auto)
+                    "mb-2 mb-lg-0" → Margen abajo en móvil, sin margen en desktop
+                -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Espacios Flexibles
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Coworking por hora</a></li>
-                            <li><a class="dropdown-item" href="#">Pases por dia</a></li>
-                            <li><a class="dropdown-item" href="#">E=mail virtual</a></li>
+                            <li><a class="dropdown-item" href="#">Pases por día</a></li>
+                            <li><a class="dropdown-item" href="#">Email virtual</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Acceso Mensual</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Coworking</a></li>
-                        <li><a class="dropdown-item" href="#">Espacio personalizado</a></li>
-                        <li><a class="dropdown-item" href="#">Oficina Privada</a></li>
-                        <li><a class="dropdown-item" href="#">Miembros premium</a></li>
-                    </ul>
-                    </li>
 
-                    
-                    <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Juntas & Eventos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Acceso Mensual
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Conoce nuestras salas de evento</a></li>
-                            <li><a class="dropdown-item" href="#">Estudio de Podcast</a></li>
-                            <li><a class="dropdown-item" href="#">Hostea un evento de nuestras oficinas</a></li>
-                            <li><a class="dropdown-item" href="#">VoltcodePro eventos de calendario</a></li>
+                            <li><a class="dropdown-item" href="#">Coworking</a></li>
+                            <li><a class="dropdown-item" href="#">Espacio personalizado</a></li>
+                            <li><a class="dropdown-item" href="#">Oficina Privada</a></li>
+                            <li><a class="dropdown-item" href="#">Miembros premium</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="#" class="nav-link">Acerca de nosotros</a></li>
-                    <li><a href="#" class="nav-link">Ubicacion</a></li>
-                    <li><a href="#" class="nav-link p-3 mb-2 bg-primary text-white rounded-pill">Reserva un espacio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Juntas & Eventos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Conoce nuestras salas</a></li>
+                            <li><a class="dropdown-item" href="#">Estudio de Podcast</a></li>
+                            <li><a class="dropdown-item" href="#">Hostea un evento</a></li>
+                            <li><a class="dropdown-item" href="#">Calendario de eventos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acerca de nosotros</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ubicación</a>
+                    </li>
+
+                    <!--
+                        Este li no necesita "nav-item" porque el enlace tiene estilo propio de botón
+                        "ms-lg-2" → Margen izquierdo solo en desktop para separarlo de los otros links
+                    -->
+                    <li class="ms-lg-2">
+                        <a href="#" class="btn btn-primary rounded-pill px-4">Reserva un espacio</a>
+                    </li>
+
                 </ul>
-                </div>
             </div>
-        </nav>
+        </div>
     </header>
+
+
     <section>
         <div class="w-75">
             <div class="mb-3">
@@ -63,50 +121,133 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div>
-            <div>
-                <img src="/assets/img/icon.png">
-            </div><br><br><br><br>
-            <div id="footer-2-3">
-                <ul class="withoutlist">
-                    <li><a href="#" class="withoutlist-1"><strong>Que es WorkHub</strong></a></li>
-                    <li><a href="#" class="withoutlist-1">Cowork diario</a></li>
-                    <li><a href="#" class="withoutlist-1">Salas de reunión</a></li>
-                    <li><a href="#" class="withoutlist-1">Talleres Abiertos</a></li>
-                    <li><a href="#" class="withoutlist-1">Red Colaborativa</a></li>
-                    <li><a href="#" class="withoutlist-1">Eventos Interdiciplinarios</a></li>
-                </ul>
-                <ul class="withoutlist">
-                    <li><a href="#" class="withoutlist-1"><strong>Cómo funciona</strong></a></li>
-                    <li><a href="#" class="withoutlist-1">Planes y membresías</a></li>
-                    <li><a href="#" class="withoutlist-1">Arriendo para talleres</a></li>
-                    <li><a href="#" class="withoutlist-1">Normas del espacio</a></li>
-                    <li><a href="#" class="withoutlist-1">Preguntas frecuentes</a></li>
-                    <li><a href="#" class="withoutlist-1">Contacto</a></li>
-                </ul>
-                <ul class="withoutlist">
-                    <li><a href="#" class="withoutlist-1"><strong>Workhub Team</strong></a></li>
-                    <li><a href="#" class="withoutlist-1">Comunidad</a></li>
-                    <li><a href="#" class="withoutlist-1">Alianzas</a></li>
-                    <li><a href="#" class="withoutlist-1">Prensa</a></li>
-                    <li><a href="#" class="withoutlist-1">Descarga Brochure</a></li>
-                </ul>
-                <div>
-                <p><strong>Comunidad en tu bandeja</strong></p>
-                <div class="container-fluid" id="barrasearch">
-                    <form class="d-flex" role="search" id="f">
-                    <input class="form-control me-2 rounded-pill " type="search" placeholder="Suscribete!" aria-label="Search">
-                    <button class="btn btn-primary rounded-circle" type="submit" id="botoncito">></button>
 
-                    </form>
+    <!-- ===================== FOOTER ===================== -->
+    <!--
+        "py-5" → Padding vertical de 3rem arriba y abajo
+        El footer usa el sistema de grid de Bootstrap para ser responsive
+    -->
+    <footer class="py-5 border-top mt-5">
+        <div class="container">
+
+            <!--
+                "row" → Activa el sistema de grillas
+                "gy-4" → Gap vertical entre filas cuando los cols se apilan en móvil
+            -->
+            <div class="row gy-4">
+
+                <!-- Logo -->
+                <!--
+                    "col-12 col-lg-1" → Ocupa todo el ancho en móvil, 1 columna en desktop
+                -->
+                <div class="col-12 col-lg-1">
+                    <img src="/assets/img/icon.png" height="40">
                 </div>
-            
+
+                <!-- Columna: Qué es WorkHub -->
+                <!--
+                    "col-6 col-md-4 col-lg-2" →
+                    - Móvil: 6/12 columnas (mitad del ancho, dos columnas por fila)
+                    - Tablet: 4/12 columnas (tres columnas por fila)
+                    - Desktop: 2/12 columnas
+                -->
+                <div class="col-6 col-md-4 col-lg-2">
+                    <ul class="list-unstyled">
+                        <!-- "list-unstyled" → Quita los bullets y el padding de la lista -->
+                        <li class="mb-2"><a href="#" class="withoutlist-1"><strong>Qué es WorkHub</strong></a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Cowork diario</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Salas de reunión</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Talleres Abiertos</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Red Colaborativa</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Eventos Interdisciplinarios</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Cómo funciona -->
+                <div class="col-6 col-md-4 col-lg-2">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="withoutlist-1"><strong>Cómo funciona</strong></a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Planes y membresías</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Arriendo para talleres</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Normas del espacio</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Preguntas frecuentes</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Recursos -->
+                <div class="col-6 col-md-4 col-lg-2">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="withoutlist-1"><strong>Recursos</strong></a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Calendario de actividades</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Convocatorias abiertas</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Blog / Bitácora</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Manual de comunidad</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Descarga Brochure</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: WorkHub Team -->
+                <div class="col-6 col-md-4 col-lg-2">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="withoutlist-1"><strong>Workhub Team</strong></a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Sobre nosotros</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Comunidad</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Equipo</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Alianzas</a></li>
+                        <li class="mb-1"><a href="#" class="withoutlist-1">Prensa</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Suscripción -->
+                <!--
+                    "col-12 col-lg-3" → Ocupa todo el ancho en móvil, 3 columnas en desktop
+                    Es más ancha porque contiene el input de suscripción
+                -->
+                <div class="col-12 col-lg-3">
+                    <p><strong>Comunidad en tu bandeja</strong></p>
+                    <!--
+                        "d-flex" → Pone el input y el botón en fila
+                        "gap-2"  → Espacio entre el input y el botón
+                    -->
+                    <form class="d-flex gap-2">
+                        <!--
+                            "flex-grow-1" → El input ocupa todo el espacio disponible
+                            dejando solo el espacio necesario para el botón
+                        -->
+                        <input class="form-control rounded-pill" type="email" placeholder="Suscríbete!">
+                        <button class="btn btn-primary rounded-circle" type="submit"
+                            style="width:42px; height:42px; flex-shrink:0">›</button>
+                    </form>
+                    <p class="text-muted mt-2" style="font-size: 13px;">
+                        Ideas, talleres y encuentros para crear en red.<br>
+                        Sin ruido, solo contenido con sentido.
+                    </p>
+                </div>
 
             </div>
-            <div></div>
+
+            <!-- Línea divisoria y pie de página -->
+            <!--
+                "border-top mt-4 pt-4" → Línea arriba con separación
+                "d-flex flex-wrap"     → En desktop queda en fila, en móvil se apila
+                "justify-content-between" → Separa los links del copyright
+            -->
+            <div class="border-top mt-4 pt-4 d-flex flex-wrap justify-content-between gap-3">
+                <div class="d-flex flex-wrap gap-4">
+                    <a href="#" class="withoutlist-1">Política de privacidad</a>
+                    <a href="#" class="withoutlist-1">Términos y condiciones</a>
+                    <a href="#" class="withoutlist-1">Reglamento interno</a>
+                    <a href="#" class="withoutlist-1">Seguridad</a>
+                </div>
+                <span class="text-muted" style="font-size: 13px;">
+                    ©2026 Workhub – Laboratorio creativo. Todos los derechos reservados.
+                </span>
+            </div>
+
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
