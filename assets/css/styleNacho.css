@@ -9,6 +9,14 @@
     color: white;
 }
 
+.labelFormulario {
+    color: rgb(194, 192, 192);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding-left: 15px; /* Alinea con el texto del input */
+    margin-bottom: 4px;
+}
+
 .inputFormulario input, 
 .inputFormulario select,
 .inputFormulario input[type="date"]{
@@ -32,11 +40,17 @@
 }
 
 .inputFormulario input::placeholder,
-.inputFormulario select,
-.inputFormulario input[type="date"],
+.inputFormulario select:invalid,
+.inputFormulario input[type="date"]:invalid,
 .inputFormulario textarea::placeholder{
     color: rgb(194, 192, 192);
 
+}
+
+
+.inputFormulario select:valid,
+.inputFormulario input[type="date"]:valid {
+    color: black;
 }
 
 .inputUbicacionFecha{
@@ -50,6 +64,50 @@
     height: 50px;
     border: none;
     font-size: 20px;
+}
+
+#contenedorReservas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-reserva {
+    background-color: #0a3333;
+    border: 1px solid #B5D9B5;
+    border-radius: 20px;
+    width: 300px;
+    overflow: hidden;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.card-reserva-header {
+    background-color: #B5D9B5;
+    padding: 12px 20px;
+}
+
+.card-reserva-header h5 {
+    margin: 0;
+    color: #021F1F;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-reserva-body {
+    padding: 15px 20px;
+}
+
+.card-reserva-body p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: rgb(194, 192, 192);
+}
+
+.card-reserva-body strong {
+    color: white;
 }
 
 /* celulares */
