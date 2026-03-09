@@ -3,13 +3,13 @@
 /* Main */
 
 main {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     /* background-color: rgb(106, 186, 255); */
 
     /* Section - Carrousel */
     .carrousel {
-        width: 100vw;
+        width: 100%;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -22,13 +22,13 @@ main {
             position: absolute;
             z-index: -1;
             background: linear-gradient(rgba(252, 252, 252, 0.2), rgba(0, 0, 0, 0.2));
-            width: 100vw;
+            width: 100%;
             height: 100vh;
 
 
 
             .carrousel-item {
-                width: 100vw;
+                width: 100%;
                 height: 100vh;
                 opacity: 0;
                 display: flex;
@@ -124,7 +124,7 @@ main {
 
 
         .next-buttons-div {
-            width: 100vw;
+            width: 100%;
             height: 50vh;
             display: flex;
             justify-content: space-between;
@@ -166,7 +166,7 @@ main {
 
 
         .select-buttons-div {
-            width: 100vw;
+            width: 90vw;
             height: 50vh;
             display: flex;
             justify-content: center;
@@ -222,12 +222,12 @@ main {
 
             .carrousel-controllers{
                 display: flex;
-                width: 100vw;
+                width: 100%;
                 height: 100vh;
                 justify-content: flex-end;
 
                 .next-buttons-div{
-                    width: 100vw;
+                    width: 100%;
                     height: 95vh;
                     display: flex;
                     justify-content:flex-start;
