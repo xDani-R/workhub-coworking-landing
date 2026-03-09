@@ -5,9 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/jeff.css" />
     <link rel="stylesheet" href="assets/css/styleVale.css">
+    <link rel="stylesheet" href="assets/css/styleNacho.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,9 +92,109 @@
         </div>
       </div>
     </section>
+        <section class="seccionFormulario pt-5 pb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+
+                    <h2 class="tituloReservas d-flex justify-content-center mb-3">Reservas</h2>
+
+                    <form id="formularioReserva" class="d-flex justify-content-center flex-column align-items-center gap-2">
+
+                        <!-- Campo nombre y apellido -->
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="nombreYapellido" class="form-label labelFormulario">Nombre y apellido</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="nombreYapellido" placeholder="Nombre y apellido">
+                            </div>
+                        </div>
+
+                        <!-- Campo email -->
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="email" class="form-label labelFormulario">Email</label>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                            </div>
+                        </div>
+
+                        <!-- Campo teléfono -->
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="telefono" class="form-label labelFormulario">Teléfono</label>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" id="telefono" placeholder="Teléfono">
+                            </div>
+                        </div>
+
+                        <!-- Campo tipo de espacio -->
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="tipoEspacio" class="form-label labelFormulario">Tipo de espacio</label>
+                            <div class="mb-3">
+                                <select name="tipoEspacio" id="tipoEspacio" class="form-control" required>
+                                    <option value="" disabled selected>Selecciona tipo de espacio</option>
+                                    <option value="compartida">Sala compartida</option>
+                                    <option value="privada">Sala privada</option>
+                                    <option value="taller">Sala taller</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Campo ubicación y fecha -->
+                        <div class="d-flex flex-row inputFormulario gap-2">
+
+                            <div class="flex-fill inputUbicacionFecha">
+                                <label for="ubicacion" class="form-label labelFormulario">Ubicación</label>
+                                <div class="mb-3">
+                                    <select name="ubicacion" id="ubicacion" class="form-control" required>
+                                        <option value="" disabled selected>Ubicación</option>
+                                        <option value="Peñalolen">Peñalolen</option>
+                                        <option value="LaReina">La Reina</option>
+                                        <option value="Ñuñoa">Ñuñoa</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="flex-fill inputUbicacionFecha">
+                                <label for="fecha" class="form-label labelFormulario">Fecha</label>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control" id="fecha" required>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Campo hora -->
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="hora" class="form-label labelFormulario">Hora</label>
+                            <div class="mb-3">
+                                <input type="time" class="form-control" id="hora">
+                            </div>
+                        </div>
+
+                        <!-- Campo mensaje -->
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="mensaje" class="form-label labelFormulario">Mensaje</label>
+                            <div class="mb-3">
+                                <textarea name="mensaje" id="mensaje" class="form-control" placeholder="Mensaje"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="botonFormulario">Reservar</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor de reservas -->
+        <div id="contenedorReservas" class="container mt-5">
+            <div class="row justify-content-center" id="filasReservas"></div>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script src="assets/js/lightbox.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 
   </body>
 </html>
