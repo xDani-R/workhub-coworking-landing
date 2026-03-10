@@ -31,8 +31,8 @@
 .gallery {
     columns: 5 320px;
     column-gap: 0.5em;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 .gallery-img {
@@ -47,8 +47,8 @@
 @media (max-width: 600px) {
     .gallery {
         columns: 2 100px;
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .gallery-text {
@@ -61,8 +61,8 @@
 @media (max-width: 768px) {
     .gallery {
         columns: 2 100px;
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .gallery-text {
