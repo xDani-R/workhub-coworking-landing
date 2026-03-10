@@ -15,12 +15,23 @@ body {
 
 .navbar {
     top : 30px;
+    height: 100px;
 }
 
 .navbar-glass {
     background-color: rgba(255, 255, 255, 0.493);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.tituloNavbar{
+    font-size: 20px;
+    color: #5B2D6E;
+    font-weight: bold;
+}
+
+.lista-nav a{
+    color: #5C5270 ;
 }
 
 #header_principal {
@@ -38,6 +49,50 @@ nav ul {
     align-items: center;
     gap: 20px;
     transform: translateY(5px);
+}
+
+/* Menú desplegable en móvil con fondo sólido */
+@media (max-width: 991px) {
+
+    /* Fondo sólido cuando el menú está abierto */
+    .navbar-collapse.show,
+    .navbar-collapse.collapsing {
+        padding: 16px;
+        border-radius: 12px;
+        margin-top: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Links visibles en móvil */
+    .navbar-collapse .nav-link {
+        color: #5C5270 !important;
+        padding: 10px 16px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .navbar-collapse .nav-link:hover {
+        background-color: rgba(91, 45, 110, 0.08);
+        color: #5B2D6E !important;
+    }
+
+    /* Centrar el botón hamburguesa */
+    .navbar > .container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Íconos centrados en móvil */
+    .navbar-collapse .nav-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Quitar el top: 30px en móvil para que no quede flotando */
+    .navbar {
+        top: 0 !important;
+        height: auto !important;
+    }
 }
 
 /* ===================== FOOTER ===================== */
