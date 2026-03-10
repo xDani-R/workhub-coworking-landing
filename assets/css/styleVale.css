@@ -7,8 +7,8 @@ body {
 /* Título */
 .inter-title {
   font-weight: 700;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-bottom: 4rem;
   text-align: left; /* por defecto alineado a la izquierda */
   color: #333333;
 
@@ -63,9 +63,9 @@ body {
 
 /* Layout  */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 0 1rem;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .row {
@@ -90,4 +90,5 @@ body {
 
 #sedes {
   margin-top: 70px;
+  margin-bottom: 30vh;
 }

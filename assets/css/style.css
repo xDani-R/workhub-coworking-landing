@@ -28,22 +28,21 @@
   background-color: #f9f9f9;
   padding: 4rem 2rem;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 30vh;
 }
 
 .aboutus-content {
-  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 1rem;
   align-items: center;
 }
 
 .aboutus-content h1 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-size: 3rem;
   color: #333333;
   margin: 0 0 1.5rem 0;
   letter-spacing: -0.02em;
