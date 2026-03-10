@@ -190,7 +190,7 @@ footer {
     .footer-subscribe-mobile { order: 1; display: block !important; }
     .footer-grid             { order: 2; margin-bottom: 0; }
     .footer-bottom           { order: 5; }
-    #rayita {order:3;}
+    #rayita                  {order:3;}
     #footer-logo             { order: 4; margin-top: 20px; margin-bottom: 8px; }
 
 
