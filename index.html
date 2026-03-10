@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
-
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/style.css" />
+        <link href="/assets/css/style_navbar_FA.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/jeff.css" />
         <link rel="stylesheet" href="assets/css/styleVale.css">
         <link rel="stylesheet" href="assets/css/styleNacho.css">
@@ -23,7 +23,6 @@
     </head>
 
     <body>
-
         <main>
             <section class="carrousel">
                 <div class="carrousel-elements-div" id="carrousel">
@@ -91,7 +90,7 @@
             </section>
 
             <div class="gallery-text">
-                <h1>Meetings just <br> got an <span class="wavy">upgrade</span></h1>
+                <h1>Meetings just <br> got an <span class="wavy-gallery">upgrade</span></h1>
                 <p>Templates, tasks, and meeting tools make it <br> effortless to supercharge your meetings.</p>
             </div>
 
@@ -130,7 +129,7 @@
 
             <!-- UBICACIONES SEDES -->
             <section id="sedes" class="container my-5" id="sedes-section">
-                <h1 class="inter-title">Ubicación / <span class="wavy">CoWorks</span></h1>
+                <h1 class="inter-title">Ubicación / <span class="wavy-sedes">CoWorks</span></h1>
                 <!-- CARD 1 -->
                 <div class="row">
                     <div class="col-md-4 mb-3">
@@ -268,10 +267,104 @@
                 <div id="contenedorReservas" class="container mt-5">
                     <div class="row justify-content-center" id="filasReservas"></div>
                 </div>
-
+            </section>
         </main>
+        <!-- ===================== FOOTER ===================== -->
+        <footer>
 
-        </section>
+            <!--
+                ORDEN EN MÓVIL (flex column + order):
+                1. footer-subscribe  (order: 1)
+                2. footer-grid       (order: 2)
+                3. footer-logo       (order: 3)
+                4. footer-bottom     (order: 4)
+
+                ORDEN EN DESKTOP: footer-logo arriba, luego footer-grid (que incluye suscripción como última columna)
+            -->
+
+            <!-- Suscripción: visible arriba en móvil, oculta en desktop (la del grid toma su lugar) -->
+            <div class="footer-subscribe footer-subscribe-mobile">
+                <p><strong>Comunidad en tu bandeja</strong></p>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Suscríbete!">
+                    <button type="submit">›</button>
+                </div>
+                <p class="subscribe-desc">
+                    Ideas, talleres y encuentros para crear en red.<br>
+                    Sin ruido, solo contenido con sentido.
+                </p>
+            </div>
+
+            <!-- Logo: visible arriba en desktop, abajo en móvil -->
+            <div id="footer-logo">
+                <img src="/assets/img/logo_coworkhub.png" height="40">
+            </div>
+
+            <!-- Grid de columnas (en desktop incluye la suscripción como 4ª columna) -->
+            <div class="footer-grid">
+
+                <!-- Columna: Qué es WorkHub -->
+                <div class="footer-col">
+                    <ul>
+                        <li class="mb-2"><a href="#" class="withoutlist-1 footer-col-title">Qué es WorkHub</a></li>
+                        <li><a href="#" class="withoutlist-1">Cowork diario</a></li>
+                        <li><a href="#" class="withoutlist-1">Comunidad creativa</a></li>
+                        <li><a href="#" class="withoutlist-1">Red colaborativa</a></li>
+                        <li><a href="#" class="withoutlist-1">Eventos interdisciplinarios</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Cómo funciona -->
+                <div class="footer-col">
+                    <ul>
+                        <li class="mb-2"><a href="#" class="withoutlist-1 footer-col-title">Cómo funciona</a></li>
+                        <li><a href="#" class="withoutlist-1">Planes y membresías</a></li>
+                        <li><a href="#" class="withoutlist-1">Arriendo para talleres</a></li>
+                        <li><a href="#" class="withoutlist-1">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: WorkHub Team -->
+                <div class="footer-col">
+                    <ul>
+                        <li class="mb-2"><a href="#" class="withoutlist-1 footer-col-title">WorkHub Team</a></li>
+                        <li><a href="#" class="withoutlist-1">Comunidad</a></li>
+                        <li><a href="#" class="withoutlist-1">Alianzas</a></li>
+                        <li><a href="#" class="withoutlist-1">Descarga Brochure</a></li>
+                    </ul>
+                </div>
+
+                <!-- Suscripción solo visible en desktop (4ª columna del grid) -->
+                <div class="footer-col footer-subscribe footer-subscribe-desktop">
+                    <p><strong>Comunidad en tu bandeja</strong></p>
+                    <div class="subscribe-form">
+                        <input type="email" placeholder="Suscríbete!">
+                        <button type="submit">›</button>
+                    </div>
+                    <p class="subscribe-desc">
+                        Ideas, talleres y encuentros para crear en red.<br>
+                        Sin ruido, solo contenido con sentido.
+                    </p>
+                </div>
+
+            </div>
+
+            <hr id="rayita">
+
+            <!-- Pie del footer -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#" class="withoutlist-1">Política de privacidad</a>
+                    <a href="#" class="withoutlist-1">Términos y condiciones</a>
+                    <a href="#" class="withoutlist-1">Reglamento interno</a>
+                    <a href="#" class="withoutlist-1">Seguridad</a>
+                </div>
+                <span class="footer-copyright">
+                    ©2026 Workhub – Laboratorio creativo. Todos los derechos reservados.
+                </span>
+            </div>
+
+        </footer>
 
         <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
         <script src="assets/js/lightbox.js"></script>
@@ -282,5 +375,4 @@
         <script src="./assets/js/SergioMuñoz.js"></script>
 
     </body>
-
 </html>

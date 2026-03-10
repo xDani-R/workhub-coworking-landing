@@ -28,6 +28,7 @@
   background-color: #f9f9f9;
   padding: 4rem 2rem;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .aboutus-content {
@@ -42,8 +43,8 @@
 .aboutus-content h1 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 2.5rem;
-  color: #1a1a1a;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #333333;
   margin: 0 0 1.5rem 0;
   letter-spacing: -0.02em;
   grid-column: 1;

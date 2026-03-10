@@ -11,11 +11,12 @@ body {
   margin-bottom: 2rem;
   text-align: left; /* por defecto alineado a la izquierda */
   color: #333333;
+
 }
-.wavy {
+.wavy-sedes {
   text-decoration-line: underline;
   text-decoration-style: wavy;
-  text-decoration-color: rgb(249, 249, 115);
+  text-decoration-color: rgb(255, 96, 47);
   text-decoration-skip-ink: none;
 }
 
