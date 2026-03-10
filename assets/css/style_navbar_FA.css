@@ -14,8 +14,11 @@ body {
 }
 
 .navbar {
-    top : 30px;
-    height: 100px;
+    top : 5px;
+    height: 60px;
+    width: 80vw;
+    margin: 0 auto;
+    border-radius: 12px;
 }
 
 .navbar-glass {
