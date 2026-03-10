@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -6,8 +6,7 @@
     text-decoration: none;
 }
 
-
-body{
+body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,78 +15,257 @@ body{
 
 .navbar-glass {
     background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(2px); 
+    backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(10px);
-} 
+}
 
-
-#header_principal{
+#header_principal {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    
 }
 
-nav ul{
+nav ul {
     display: flex;
     flex-direction: row;
     list-style: none;
     align-items: center;
     gap: 20px;
-    transform: translateY(5px); 
-    /* arreglo temporal para alinear el texto con el logo linea 40 */
+    transform: translateY(5px);
 }
 
+/* ===================== FOOTER ===================== */
 footer {
+    background-color: #ffffff;
+    padding: 48px 40px 24px 40px;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 40px;
+}
+
+/* Logo en el footer */
+#footer-logo {
+    margin-bottom: 32px;
+}
+
+/* Grid de columnas del footer */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 40px;
+    align-items: start;
+}
+
+/* Columna de suscripción ocupa más ancho */
+.footer-subscribe {
+    grid-column: span 1;
+}
+
+/* Títulos de columna */
+.footer-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Links del footer */
+.footer-col ul {
     display: flex;
     flex-direction: column;
-    background-color: bisque;
-    margin: 0px;
-    padding: 50px;
-    gap: 0px;
-}
-
-div#footer-2-3{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-@media (max-width: 767px) {
-    div#footer-2-3{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-#barrasearch{
-    margin: 0px;
-    gap: 0px;
-    background-color: red;
-    width: 100%;
-}
-
-#f{
-    background-color: black;
-    width : 100%;
-}
-
-.withoutlist{
-    margin: 0px;
-    padding: 0px;
-    gap: 5px;
-    display: flex;
-    flex-direction: column;
+    gap: 8px;
 }
 
 .withoutlist-1 {
     text-decoration: none;
-    color: black;
+    color: #333333;
+    font-size: 13px;
+    transition: color 0.2s;
 }
 
-#botoncito{
+.withoutlist-1:hover {
+    color: #0d6efd;
+}
+
+/* Input de suscripción */
+.footer-subscribe p strong {
+    font-size: 14px;
+    color: #111111;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.footer-subscribe .subscribe-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-subscribe .subscribe-form input {
+    flex-grow: 1;
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.footer-subscribe .subscribe-form input:focus {
+    border-color: #0d6efd;
+}
+
+.footer-subscribe .subscribe-form button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.footer-subscribe .subscribe-form button:hover {
+    background-color: #0b5ed7;
+}
+
+.footer-subscribe .subscribe-desc {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* Pie del footer */
+.footer-bottom {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-bottom-links a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+    color: #0d6efd;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #888888;
+}
+
+/* ===================== RESPONSIVE MÓVIL ===================== */
+@media (max-width: 767px) {
+
+    footer {
+        padding: 32px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Orden exacto según la imagen */
+    .footer-subscribe-mobile { order: 1; display: block !important; }
+    .footer-grid             { order: 2; margin-bottom: 0; }
+    .footer-bottom           { order: 3; border-top: 1px solid #111111 !important; }
+    
+    #footer-logo             { order: 4; margin-top: 20px; margin-bottom: 8px; }
+
+
+    /* Ocultar suscripción del desktop en móvil */
+    .footer-subscribe-desktop {
+        display: none !important;
+    }
+
+    /* Input más grande en móvil */
+    .footer-subscribe .subscribe-form input {
+        padding: 14px 22px;
+        font-size: 15px;
+    }
+
+    .footer-subscribe .subscribe-form button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    /* Título centrado en móvil */
+    .footer-subscribe-mobile p strong {
+        text-align: center;
+        display: block;
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    /* Grid se convierte en columna */
+    .footer-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    /* Links del bottom en 3 columnas como en la imagen */
+    .footer-bottom-links {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 12px 16px;
+    }
+}
+
+/* ===================== DESKTOP: ocultar versión móvil de suscripción ===================== */
+@media (min-width: 768px) {
+    .footer-subscribe-mobile {
+        display: none;
+    }
+}
+
+/* ===================== TABLET ===================== */
+@media (min-width: 768px) and (max-width: 991px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-subscribe {
+        grid-column: span 2;
+    }
+}
+
+/* Estilos anteriores que se mantienen */
+#barrasearch {
+    margin: 0px;
+    gap: 0px;
+    width: 100%;
+}
+
+#botoncito {
     transform: translateX(-35px);
 }
