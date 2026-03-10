@@ -147,7 +147,6 @@ footer {
 
 /* Pie del footer */
 .footer-bottom {
-    border-top: 1px solid #e5e5e5;
     padding-top: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -190,8 +189,8 @@ footer {
     /* Orden exacto según la imagen */
     .footer-subscribe-mobile { order: 1; display: block !important; }
     .footer-grid             { order: 2; margin-bottom: 0; }
-    .footer-bottom           { order: 3; border-top: 1px solid #111111 !important; }
-    
+    .footer-bottom           { order: 5; }
+    #rayita {order:3;}
     #footer-logo             { order: 4; margin-top: 20px; margin-bottom: 8px; }
 
 
