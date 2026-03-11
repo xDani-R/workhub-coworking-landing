@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Bebas+Neue&family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Rye&display=swap');
+
+/* Main */
+
+main {
+    width: 100%;
+    height: auto;
+    /* background-color: rgb(106, 186, 255); */
+
+    /* Section - Carrousel */
+    .carrousel {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20vh;
+
+        /* Carrousel ITEM*/
+        .carrousel-elements-div {
+            display: flex;
+            position: absolute;
+            z-index: -1;
+            background: linear-gradient(rgba(252, 252, 252, 0.2), rgba(0, 0, 0, 0.2));
+            width: 100%;
+            height: 100vh;
+
+
+
+            .carrousel-item {
+                width: 100%;
+                height: 100vh;
+                opacity: 0;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: ease-in-out;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: 0.4s ease-in-out opacity;
+
+
+                .carrousel-body {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: "Inter", sans-serif;
+                    gap: 2px;
+
+                    p {
+                        position: relative;
+                        font-family: "Inter", sans-serif;
+                        color: #7366fe;
+                        font-weight: bolder;
+
+
+                    }
+
+                    h1 {
+                        position: relative;
+                        font-family: "Inter", sans-serif;
+                        font-size: 62px;
+                        color: #ffffff;
+
+                    }
+
+                    button {
+                        position: relative;
+                        background-color: #462eff;
+                        padding: 15px;
+                        font-size: 15px;
+                        border: none;
+                        border-radius: 50px;
+                        font-weight: bolder;
+                        color: white;
+                        align-self: center;
+                    }
+
+                }
+
+
+            }
+
+            .carrousel-item::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                backdrop-filter: blur(4px);
+                background: rgba(0, 0, 0, 0.1);
+                /* opcional para contraste */
+            }
+
+            .carrousel-item.active {
+                display: flex;
+                opacity: 1;
+                /* transition: all 0.4s ease-in-out; */
+            }
+
+            .carrousel-item-one {
+                background-image: url('../img/hero1.jpg');
+
+            }
+
+            .carrousel-item-two {
+                background-image: url('../img/hero2.jpg');
+
+            }
+
+            .carrousel-item-three {
+                background-image: url('../img/hero3.jpg');
+
+            }
+
+
+        }
+
+
+
+
+
+        .next-buttons-div {
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            .next-button {
+                margin: 0px 20px;
+                width: 70px;
+                height: 70px;
+                font-size: 60px;
+                border-radius: 100%;
+                border: none;
+                padding: 5px;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.6);
+                background-color: rgba(240, 248, 255, 0.6);
+                cursor: pointer;
+                transition: 0.8s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .next-button:hover {
+                color: rgba(255, 255, 255, 0.2);
+                background-color: rgba(240, 248, 255, 0.6);
+                box-shadow: 1px 1px 20px 1px white;
+                scale: 1.2;
+            }
+
+            .next-button:active {
+                color: rgb(255, 255, 255, 0.8);
+                background-color: rgb(255, 255, 255, 0.8);
+                border: white 2px solid;
+                box-shadow: 1px 1px 20px 1px white;
+            }
+        }
+
+
+
+        .select-buttons-div {
+            width: 90vw;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 50vh;
+
+
+            .circle-button {
+                margin: 30px 15px;
+                width: 25px;
+                height: 25px;
+                border-radius: 100%;
+                background-color: rgba(255, 255, 255, 0.4);
+                border: none;
+            }
+
+            .circle-button.active {
+                background-color: white;
+                scale: 1.5;
+            }
+
+            .circle-button:hover {
+                scale: 2;
+            }
+        }
+
+    }
+
+}
+
+
+@media (max-width:850px) {
+
+    main {
+
+
+        .carrousel {
+
+            .carrousel-elements-div {
+
+                .carrousel-item {
+
+                    .carrousel-body {
+
+                        h1 {
+                            font-size: 2.6rem;
+                        }
+
+                    }
+                }
+            }
+
+
+            .carrousel-controllers {
+                display: flex;
+                width: 100%;
+                height: 100vh;
+                justify-content: flex-end;
+
+                .next-buttons-div {
+                    width: 100%;
+                    height: 95vh;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-end;
+
+                    .next-button {
+                        width: 30px;
+                        height: 30px;
+                        font-size: 20px;
+
+                    }
+                }
+
+                .select-buttons-div {
+                    display: none;
+                }
+            }
+        }
+
+
+    }
+
+}

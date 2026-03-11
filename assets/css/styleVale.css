@@ -1,0 +1,100 @@
+/* Fuente principal */
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f9f9f9;
+    color: #000000;
+}
+
+/* Título */
+.inter-title {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    text-align: left;
+    /* por defecto alineado a la izquierda */
+    color: #333333;
+
+}
+
+.wavy-sedes {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgb(255, 96, 47);
+    text-decoration-skip-ink: none;
+}
+
+/* En pantallas pequeñas se centra */
+@media (max-width: 768px) {
+    .inter-title {
+        text-align: center;
+    }
+}
+
+/* Cards */
+.card {
+    background-color: #054560;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Layout  */
+.container {
+    padding: 0 1rem;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.col-md-4 {
+    flex: 1 1 calc(33.333% - 1rem);
+}
+
+/* Responsive: Las cards se apilan */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 1 1 100%;
+    }
+
+    .row {
+        justify-content: center;
+        /* centra las cards horizontalmente */
+    }
+}
+
+#sedes {
+    margin-top: 70px;
+    margin-bottom: 30vh;
+}
