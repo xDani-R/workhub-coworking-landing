@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styleNacho.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===================== CARDS DE ESPACIOS ===================== -->
+    <section class="seccionEspacios">
+        <div class="container py-5">
+            <h2 class="tituloEspacios mb-4">Reservas | Espacios disponibles</h2>
+
+            <!-- Filtro por tipo de espacio -->
+            <div class="mb-4 d-flex gap-3 flex-wrap">
+                <button class="btn-filtro activo" onclick="filtrarEspacios('todos')">Todos</button>
+                <button class="btn-filtro" onclick="filtrarEspacios('compartida')">Sala compartida</button>
+                <button class="btn-filtro" onclick="filtrarEspacios('privada')">Sala privada</button>
+                <button class="btn-filtro" onclick="filtrarEspacios('taller')">Sala taller</button>
+            </div>
+
+            <div class="row g-4" id="contenedorEspacios">
+
+                <!-- CARD 1 -->
+                <div class="col-12 col-md-6 col-lg-4 card-espacio-wrapper" id="espacio-1" data-tipo="compartida">
+                    <div class="card card-espacio h-100">
+                        <img src="assets/img/Sala 4.jpg" class="card-img-top" alt="Sala de reunión 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Sala de reunión N°1 - 6 personas</h5>
+                            <p class="card-precio">Desde $26,751 / hora &nbsp;–&nbsp; 6 Personas</p>
+                            <div class="amenidades mb-3">
+                                <span class="badge-amenidad">📶 WiFi</span>
+                                <span class="badge-amenidad">🖊 Pizarra</span>
+                                <span class="badge-amenidad">❄️ A/C</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-1', 'Sala de reunión N°1')">
+                                Reservar &nbsp;›
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-12 col-md-6 col-lg-4 card-espacio-wrapper" id="espacio-2" data-tipo="compartida">
+                    <div class="card card-espacio h-100">
+                        <img src="assets/img/Sala 2.jpg" class="card-img-top" alt="Sala de reunión 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Sala de reunión N°2 - 12 personas</h5>
+                            <p class="card-precio">Desde $45,272 / hora &nbsp;–&nbsp; 12 Personas</p>
+                            <div class="amenidades mb-3">
+                                <span class="badge-amenidad">📶 WiFi</span>
+                                <span class="badge-amenidad">📺 TV</span>
+                                <span class="badge-amenidad">🖊 Pizarra</span>
+                                <span class="badge-amenidad">❄️ A/C</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-2', 'Sala de reunión N°2')">
+                                Reservar &nbsp;›
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-12 col-md-6 col-lg-4 card-espacio-wrapper" id="espacio-3" data-tipo="taller">
+                    <div class="card card-espacio h-100">
+                        <img src="assets/img/Sala 3.jpg" class="card-img-top" alt="Sala de reunión 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Sala de reuniones N°3 - 14 personas</h5>
+                            <p class="card-precio">Desde $48,358 / hora &nbsp;–&nbsp; 14 Personas</p>
+                            <div class="amenidades mb-3">
+                                <span class="badge-amenidad">📶 WiFi</span>
+                                <span class="badge-amenidad">📺 TV</span>
+                                <span class="badge-amenidad">🖊 Pizarra</span>
+                                <span class="badge-amenidad">❄️ A/C</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-3', 'Sala de reuniones N°3')">
+                                Reservar &nbsp;›
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="col-12 col-md-6 col-lg-4 card-espacio-wrapper" id="espacio-4" data-tipo="taller">
+                    <div class="card card-espacio h-100">
+                        <img src="assets/img/Sala 7.jpg" class="card-img-top" alt="Sala de reunión 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Sala de reunión N°8.1 - Piso 8 - 24 personas</h5>
+                            <p class="card-precio">Desde $58,647 / hora &nbsp;–&nbsp; 24 Personas</p>
+                            <div class="amenidades mb-3">
+                                <span class="badge-amenidad">📶 WiFi</span>
+                                <span class="badge-amenidad">☕ Café & té</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-4', 'Sala de reunión N°8.1')">
+                                Reservar &nbsp;›
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="col-12 col-md-6 col-lg-4 card-espacio-wrapper" id="espacio-5" data-tipo="privada">
+                    <div class="card card-espacio h-100">
+                        <img src="assets/img/Sala 5.jpg" class="card-img-top" alt="Sala de reunión 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Sala de reunión N°9.4 - Piso 9 - 7 personas</h5>
+                            <p class="card-precio">Desde $30,867 / hora &nbsp;–&nbsp; 7 Personas</p>
+                            <div class="amenidades mb-3">
+                                <span class="badge-amenidad">📶 WiFi</span>
+                                <span class="badge-amenidad">☕ Café & té</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-5', 'Sala de reunión N°9.4')">
+                                Reservar &nbsp;›
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="col-12 col-md-6 col-lg-4 card-espacio-wrapper" id="espacio-6" data-tipo="privada">
+                    <div class="card card-espacio h-100">
+                        <img src="assets/img/Sala 6.jpeg" class="card-img-top" alt="Sala de reunión 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Sala de reunión N°2.1 - Piso 2 - 8 personas</h5>
+                            <p class="card-precio">Desde $33,954 / hora &nbsp;–&nbsp; 8 Personas</p>
+                            <div class="amenidades mb-3">
+                                <span class="badge-amenidad">📶 WiFi</span>
+                                <span class="badge-amenidad">📺 TV</span>
+                                <span class="badge-amenidad">🖊 Pizarra</span>
+                                <span class="badge-amenidad">❄️ A/C</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-6', 'Sala de reunión N°2.1')">
+                                Reservar &nbsp;›
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTENEDOR DE RESERVAS CONFIRMADAS ===================== -->
+    <!--
+        Aquí aparecen las cards de confirmación después de reservar.
+        Se mantiene oculto visualmente hasta que haya al menos una reserva.
+    -->
+    <section class="seccionReservasConfirmadas">
+        <div class="container py-4">
+            <div id="contenedorReservas" class="d-flex flex-wrap gap-4 justify-content-center"></div>
+        </div>
+    </section>
+
+    <!-- ===================== MODAL CON FORMULARIO ===================== -->
+    <div class="modal fade" id="modalReserva" tabindex="-1" aria-labelledby="modalReservaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content modalContenido">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title tituloModal" id="modalReservaLabel">Reservar espacio</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p class="espacioSeleccionado mb-4">📍 <span id="nombreEspacioSeleccionado"></span></p>
+
+                    <form id="formularioReserva" class="d-flex justify-content-center flex-column align-items-center gap-2">
+
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="nombreYapellido" class="form-label labelFormulario">Nombre y apellido</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="nombreYapellido" placeholder="Nombre y apellido">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="email" class="form-label labelFormulario">Email</label>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="telefono" class="form-label labelFormulario">Teléfono</label>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" id="telefono" placeholder="Teléfono">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row inputFormulario gap-2">
+                            <div class="flex-fill inputUbicacionFecha">
+                                <label for="ubicacion" class="form-label labelFormulario">Ubicación</label>
+                                <div class="mb-3">
+                                    <select name="ubicacion" id="ubicacion" class="form-control" required>
+                                        <option value="" disabled selected>Ubicación</option>
+                                        <option value="Peñalolen">Peñalolen</option>
+                                        <option value="LaReina">La Reina</option>
+                                        <option value="Ñuñoa">Ñuñoa</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex-fill inputUbicacionFecha">
+                                <label for="fecha" class="form-label labelFormulario">Fecha</label>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control" id="fecha" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="hora" class="form-label labelFormulario">Hora</label>
+                            <div class="mb-3">
+                                <input type="time" class="form-control" id="hora">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column inputFormulario">
+                            <label for="mensaje" class="form-label labelFormulario">Mensaje</label>
+                            <div class="mb-3">
+                                <textarea name="mensaje" id="mensaje" class="form-control" placeholder="Mensaje"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="botonFormulario">Confirmar reserva</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
