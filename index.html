@@ -25,7 +25,7 @@
     <body>
 
         <!-- NAVBAR -->
-        <header class="navbar navbar-expand-lg fixed-top shadow-sm navbar-glass">
+        <header class="navbar navbar-expand-lg fixed-top shadow-sm navbar-glass scrollable">
             <div class="container d-flex align-items-center">
 
                 <a class="navbar-brand tituloNavbar d-flex align-items-center gap-2" href="#">
@@ -55,7 +55,7 @@
                             <a class="nav-link" href="#sedes">Ubicación</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#form-section">Reservas</a>
+                            <a class="nav-link" href="/reservas.html">Reservas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#Allfooter">
@@ -86,26 +86,30 @@
 
                     <div class="carrousel-item carrousel-item-one" id="c-element-one">
                         <div class="carrousel-body">
-
                             <p>EL LUGAR DONDE LAS IDEAS CRECEN</p>
                             <h1>Deja el café de casa. <br> Únete a nuestra comunidad.</h1>
-                            <button> RESERVAR</button>
+                            <button onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})"> RESERVAR</button>
                         </div>
+                            
                     </div>
 
                     <div class="carrousel-item carrousel-item-two" id="c-element-two">
                         <div class="carrousel-body">
                             <p>AMBIENTES QUE INSPIRAN</p>
                             <h1>Salas privadas y espacios<br>abiertos para colaborar.</h1>
-                            <button>VER ESPACIOS</button>
+                            <button onclick="document.getElementById('gallery-section').scrollIntoView({behavior:'smooth'})">VER ESPACIOS</button>
+                            
+
+
                         </div>
+
                     </div>
 
                     <div class="carrousel-item carrousel-item-three" id="c-element-three">
                         <div class="carrousel-body">
                             <p>NETWORKING REAL</p>
                             <h1>Conecta con profesionales<br>que piensan como tú.</h1>
-                            <button>CONOCER MÁS</button>
+                            <button onclick="document.getElementById('aboutus-section').scrollIntoView({behavior:'smooth'})">CONOCER MÁS</button>
                         </div>
                     </div>
 
@@ -441,6 +445,7 @@
             crossorigin="anonymous"></script>
         <script src="assets/js/script.js"></script>
         <script src="./assets/js/SergioMuñoz.js"></script>
+        <script src="assets/js/navbar-scroll.js"></script>
 
     </body>
 </html>

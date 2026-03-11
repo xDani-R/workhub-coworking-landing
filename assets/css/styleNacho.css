@@ -1,9 +1,111 @@
-.seccionFormulario{
+/* ===================== SECCIÓN DE ESPACIOS ===================== */
+.seccionEspacios {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+.tituloEspacios {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Card de cada espacio */
+.card-espacio {
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
+}
+
+.card-espacio:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.card-espacio .card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-espacio .card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.card-precio {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Badges de amenidades */
+.amenidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.badge-amenidad {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: #333;
+}
+
+/* Botón reservar de cada card */
+.btn-reservar {
+    background-color: #FFE000;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-reservar:hover {
+    background-color: #e6ca00;
+}
+
+/* ===================== MODAL ===================== */
+.modalContenido {
+    background-color: #021F1F;
+    border-radius: 20px;
+    border: none;
+}
+
+.tituloModal {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+
+.espacioSeleccionado {
+    color: #B5D9B5;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* ===================== FORMULARIO ===================== */
+.seccionFormulario {
     background-color: #021F1F;
     padding-bottom: 100px;
 }
 
-.tituloReservas{
+.tituloReservas {
     font-family: 'Inter', sans-serif;
     letter-spacing: 10px;
     color: white;
@@ -13,189 +115,241 @@
     color: rgb(194, 192, 192);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    padding-left: 15px; /* Alinea con el texto del input */
+    padding-left: 15px;
     margin-bottom: 4px;
 }
 
-.inputFormulario input, 
+.inputFormulario input,
 .inputFormulario select,
-.inputFormulario input[type="date"]{
+.inputFormulario input[type="date"] {
     border-radius: 50px;
     height: 50px;
     width: 100%;
 }
 
-.inputFormulario textarea{
+.inputFormulario textarea {
     border-radius: 25px;
     padding-left: 50px;
+    padding-top: 10px;
     height: 70px;
 }
-.inputFormulario textarea{
-    padding-top: 10px;
-}
 
-
-.inputFormulario .form-control{
+.inputFormulario .form-control {
     padding-left: 50px;
 }
 
 .inputFormulario input::placeholder,
 .inputFormulario select:invalid,
 .inputFormulario input[type="date"]:invalid,
-.inputFormulario textarea::placeholder{
+.inputFormulario textarea::placeholder {
     color: rgb(194, 192, 192);
-
 }
-
 
 .inputFormulario select:valid,
 .inputFormulario input[type="date"]:valid {
     color: black;
 }
 
-.inputUbicacionFecha{
+.inputUbicacionFecha {
     min-width: 0;
 }
 
-.botonFormulario{
+.botonFormulario {
     color: white;
     background-color: #B5D9B5;
-    border-radius: 50px;
+    border-radius: 12px;
     height: 50px;
     border: none;
     font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botonFormulario:hover {
+    background-color: #9ecb9e;
+}
+
+
+.btn-filtro {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #333;
+}
+
+.btn-filtro:hover {
+    background-color: #FFE000;
+    border-color: #FFE000;
+}
+
+.btn-filtro.activo {
+    background-color: #FFE000;
+    border-color: #FFE000;
+    font-weight: 600;
+}
+
+
+/* ===================== SECCIÓN RESERVAS CONFIRMADAS ===================== */
+.seccionReservasConfirmadas {
+    background-color: #021F1F;
+    min-height: 50px;
+    padding: 40px 0 60px 0;
+}
+
+/* Título */
+.seccionReservasConfirmadas .container::before {
+    content: 'Reservas confirmadas';
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #B5D9B5;
+    margin-bottom: 32px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 #contenedorReservas {
     display: flex;
     flex-wrap: wrap;
+    gap: 24px;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
 }
 
+/* Card */
 .card-reserva {
-    background-color: #0a3333;
-    border: 1px solid #B5D9B5;
-    border-radius: 20px;
-    width: 300px;
+    background: linear-gradient(145deg, #0d3d3d, #072828); /* Gradiente sutil */
+    border: 1px solid rgba(181, 217, 181, 0.25);
+    border-radius: 12px;
     overflow: hidden;
-    color: white;
     font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
 }
 
+.card-reserva:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    border-color: rgba(181, 217, 181, 0.5);
+}
+
+/* Header */
 .card-reserva-header {
-    background-color: #B5D9B5;
-    padding: 12px 20px;
+    background: linear-gradient(90deg, #B5D9B5, #8ec98e); /* Gradiente en el header */
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .card-reserva-header h5 {
     margin: 0;
     color: #021F1F;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
 }
 
+/* Body */
 .card-reserva-body {
-    padding: 15px 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .card-reserva-body p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: rgb(194, 192, 192);
+    margin: 0;
+    font-size: 13px;
+    color: rgba(181, 217, 181, 0.75); /* Verde claro apagado para el valor */
+    border-bottom: 1px solid rgba(181, 217, 181, 0.08);
+    padding: 10px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
 }
 
+.card-reserva-body p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Etiquetas */
 .card-reserva-body strong {
-    color: white;
+    color: #B5D9B5; /* Verde más brillante para etiquetas */
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-/* celulares */
-@media (max-width: 576px) { 
-    .tituloReservas{
-        font-size: 40px;
-    }
-
-    .inputFormulario{
-        width: 75%;
-    }
-
-    .inputFormulario .form-control{
-        padding-left: 20px;
-    }
-
-    .botonFormulario{
-        width: 75%;
-    }
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 576px) {
+    .tituloReservas { font-size: 40px; }
+    .inputFormulario { width: 90%; }
+    .inputFormulario .form-control { padding-left: 20px; }
+    .botonFormulario { width: 90%; }
 }
 
-@media (min-width: 577px) { 
-    .tituloReservas{
-        font-size: 35px;
-    }
-
-    .inputFormulario{
-        width: 60%;
-    }
-
-    .inputFormulario .form-control{
-        padding-left: 20px;
-    }
-
-    .inputFormulario textarea{
-        height: 80px;
-    }
-
-    .botonFormulario{
-        width: 60%;
-    }
+@media (min-width: 577px) {
+    .tituloReservas { font-size: 35px; }
+    .inputFormulario { width: 80%; }
+    .inputFormulario .form-control { padding-left: 20px; }
+    .inputFormulario textarea { height: 80px; }
+    .botonFormulario { width: 80%; }
 }
 
-/* tablets */
 @media (min-width: 768px) {
-    .tituloReservas{
-        font-size: 40px;
-    }
-
-    .inputFormulario{
-    width: 40%; 
+    .tituloReservas { font-size: 40px; }
+    .inputFormulario { width: 70%; }
+    .inputFormulario .form-control { padding-left: 30px; }
+    .botonFormulario { width: 70%; }
 }
 
-    .inputFormulario .form-control{
-        padding-left: 30px;
-    }
-
-    .botonFormulario{
-        width: 40%;
-    }
-}
-
-/* laptops */
 @media (min-width: 992px) {
-    .tituloReservas{
-        font-size: 40px;
-    }
-
-        .inputFormulario{
-        width: 35%; 
-    }
-
-    .botonFormulario{
-        width: 35%;
-    }
+    .tituloReservas { font-size: 40px; }
+    .inputFormulario { width: 60%; }
+    .botonFormulario { width: 60%; }
 }
 
-/* pantallas grandes */
 @media (min-width: 1200px) {
-
-.tituloReservas{
-    font-size: 50px;
-}
-    .inputFormulario{
-    width: 30%;
+    .tituloReservas { font-size: 50px; }
+    .inputFormulario { width: 50%; }
+    .botonFormulario { width: 50%; }
 }
 
-    .botonFormulario{
-        width: 30%;
+/* Móvil: 1 card por fila */
+@media (max-width: 576px) {
+    .card-reserva {
+        width: 100%;
+    }
+}
+
+/* Tablet: 2 cards por fila */
+@media (min-width: 577px) and (max-width: 991px) {
+    .card-reserva {
+        width: calc(50% - 12px);
+    }
+}
+
+/* Desktop: 3 cards por fila */
+@media (min-width: 992px) {
+    .card-reserva {
+        width: calc(33.333% - 16px);
+    }
+}
+
+/* Pantallas grandes: hasta 4 cards por fila */
+@media (min-width: 1400px) {
+    .card-reserva {
+        width: calc(25% - 18px);
     }
 }

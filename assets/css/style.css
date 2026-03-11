@@ -74,7 +74,7 @@
   height: 100%;
   min-height: 400px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -127,4 +127,8 @@
   .aboutus-content img {
     min-height: 250px;
   }
+}
+
+.scrollable {
+  transition: top 0.3s;
 }
