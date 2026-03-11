@@ -59,9 +59,9 @@ main {
                     p {
                         position: relative;
                         font-family: "Inter", sans-serif;
-                        color: #7366fe;
+                        color: #ffffff;
                         font-weight: bolder;
-                        text-shadow:  2px 2px 1px #000000;
+                        text-shadow:  0px 0px 7px black, 0px 0px 14px black;
 
                     }
 
@@ -70,18 +70,18 @@ main {
                         font-family: "Inter", sans-serif;
                         font-size: 62px;
                         color: #ffffff;
-                        text-shadow: 5px 0.5px 1px black;
+                        text-shadow: 0px 0px 6px black, 0px 0px 14px black;
 
                     }
 
                     button {
                         position: sticky;
-                        background-color: rgba(255, 255, 255, 0);
+                        background-color: #5B2D6E;
                         padding: 15px;
                         font-size: 15px;
                         border: none;
-                        border-radius: 50px;
-                        border: solid 2px blue;
+                        border-radius: 12px;
+                        border: solid 2px #5B2D6E;
                         font-weight: bolder;
                         color: white;
                         align-self: center;
@@ -90,7 +90,7 @@ main {
 
                     button:hover{
                         border:solid 2px rgba(255, 255, 255, 0);
-                        background-color: rgba(255, 255, 255, 0.2);
+                        background-color: #3b1d48;
                         color: #ffffff;
                     }
 
@@ -150,12 +150,12 @@ main {
                 width: 70px;
                 height: 70px;
                 font-size: 60px;
-                border-radius: 100%;
+                border-radius: 50%;
                 border: none;
                 padding: 5px;
                 text-align: center;
                 color: rgba(255, 255, 255, 0.6);
-                background-color: rgba(240, 248, 255, 0.6);
+                background-color: rgba(240, 248, 255, 0);
                 cursor: pointer;
                 transition: 0.8s;
                 display: flex;
@@ -194,7 +194,7 @@ main {
                 margin: 30px 15px;
                 width: 25px;
                 height: 25px;
-                border-radius: 100%;
+                border-radius: 12px;
                 background-color: rgba(255, 255, 255, 0.4);
                 border: none;
                 z-index: 100;
