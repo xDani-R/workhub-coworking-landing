@@ -1,3 +1,13 @@
+/* ================================
+  IMPORTS DE SECCIONES
+================================ */
+@import url("navbar.css");
+@import url("hero.css");
+@import url("gallery.css");
+@import url("features.css");
+@import url("reservas.css");
+
+
 * {
   margin: 0px;
   padding: 0px;
@@ -26,14 +36,14 @@
 
 .aboutus {
   background-color: #f9f9f9;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   width: 100%;
   margin-bottom: 50px;
 }
 
 .aboutus-content {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1800px;
+  margin: 7%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -53,7 +63,7 @@
 .aboutus-content p {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 1.500rem;
   line-height: 1.7;
   color: #333;
   text-align: left;
@@ -132,3 +142,7 @@
 .scrollable {
   transition: top 0.3s;
 }
+
+
+
+
