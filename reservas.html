@@ -67,12 +67,11 @@
 
             <!-- Filtro por tipo de espacio -->
             <div class="mb-4 d-flex gap-3 flex-wrap">
-                <button class="btn-filtro activo" onclick="filtrarEspacios('todos')">Todos</button>
-                <button class="btn-filtro" onclick="filtrarEspacios('compartida')">Sala compartida</button>
-                <button class="btn-filtro" onclick="filtrarEspacios('privada')">Sala privada</button>
-                <button class="btn-filtro" onclick="filtrarEspacios('taller')">Sala taller</button>
+                <button class="btn-filtro activo" onclick="app.filtrarEspacios('todos', this)">Todos</button>
+                <button class="btn-filtro" onclick="app.filtrarEspacios('compartida', this)">Sala compartida</button>
+                <button class="btn-filtro" onclick="app.filtrarEspacios('privada', this)">Sala privada</button>
+                <button class="btn-filtro" onclick="app.filtrarEspacios('taller', this)">Sala taller</button>
             </div>
-
             <div class="row g-4" id="contenedorEspacios">
 
                 <!-- CARD 1 -->
@@ -89,7 +88,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-white border-0 pb-3">
-                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-1', 'Sala de reunión N°1')">
+                            <button class="btn-reservar w-100" onclick="app.abrirFormulario('espacio-1', 'Sala de reunión N°1')">
                                 Reservar &nbsp;›
                             </button>
                         </div>
@@ -111,7 +110,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-white border-0 pb-3">
-                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-2', 'Sala de reunión N°2')">
+                            <button class="btn-reservar w-100" onclick="app.abrirFormulario('espacio-2', 'Sala de reunión N°2')">
                                 Reservar &nbsp;›
                             </button>
                         </div>
@@ -133,7 +132,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-white border-0 pb-3">
-                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-3', 'Sala de reuniones N°3')">
+                            <button class="btn-reservar w-100" onclick="app.abrirFormulario('espacio-3', 'Sala de reunión N°3')">
                                 Reservar &nbsp;›
                             </button>
                         </div>
@@ -153,7 +152,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-white border-0 pb-3">
-                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-4', 'Sala de reunión N°8.1')">
+                            <button class="btn-reservar w-100" onclick="app.abrirFormulario('espacio-4', 'Sala de reunión N°4')">
                                 Reservar &nbsp;›
                             </button>
                         </div>
@@ -173,7 +172,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-white border-0 pb-3">
-                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-5', 'Sala de reunión N°9.4')">
+                            <button class="btn-reservar w-100" onclick="app.abrirFormulario('espacio-5', 'Sala de reunión N°5')">
                                 Reservar &nbsp;›
                             </button>
                         </div>
@@ -195,7 +194,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-white border-0 pb-3">
-                            <button class="btn-reservar w-100" onclick="abrirFormulario('espacio-6', 'Sala de reunión N°2.1')">
+                            <button class="btn-reservar w-100" onclick="app.abrirFormulario('espacio-6', 'Sala de reunión N°6')">
                                 Reservar &nbsp;›
                             </button>
                         </div>
@@ -298,7 +297,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/reservar.js"></script>
     <script src="assets/js/navbar-scroll.js"></script>
 
 </body>
