@@ -1,0 +1,17 @@
+    .seccionEspacios {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding-top: 100px;
+    }
+
+    .tituloEspacios {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.5rem;
+    }
+
+    .subtitulo {
+    font-size: 0.93rem;
+    }

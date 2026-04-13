@@ -1,0 +1,239 @@
+    /* ── Overlay ── */
+    .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    /* permite scroll del overlay en móvil si el modal es muy alto */
+    overflow-y: auto;
+    }
+
+    /* ── Contenido del modal ── */
+    .modalContenido {
+    background-color: #5A7290;
+    border-radius: 16px;
+    border: none;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    /* Scroll suave dentro del modal */
+    -webkit-overflow-scrolling: touch;
+    }
+
+    /* ── Header ── */
+    .modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 8px 24px;
+    position: sticky;
+    top: 0;
+    background-color: #5A7290;
+    z-index: 1;
+    border-radius: 16px 16px 0 0;
+    }
+
+    .tituloModal {
+    font-family: 'Inter', sans-serif;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    }
+
+    .btnCerrar {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+    }
+
+    .btnCerrar:hover {
+    background: rgba(0, 0, 0, 0.1);
+    }
+
+    /* ── Body ── */
+    .modalBody {
+    padding: 0 24px 24px 24px;
+    }
+
+    .espacioSeleccionado {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+    }
+
+    /* ── Formulario ── */
+    .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    }
+
+    .inputFormulario {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    }
+
+    /* Fila de sede + fecha */
+    .filaDoble {
+    flex-direction: row;
+    gap: 0.5rem;
+    }
+
+    .inputUbicacionFecha {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    }
+
+    /* Labels */
+    .labelFormulario {
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 4px;
+    margin-bottom: 5px;
+    letter-spacing: 0.2px;
+    }
+
+    /* Inputs */
+    .inputControl {
+    border-radius: 999px !important;
+    height: 44px;
+    width: 100%;
+    background-color: #ffffff !important;
+    border: none !important;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding-left: 16px !important;
+    box-shadow: none !important;
+    margin-bottom: 0.75rem;
+    }
+
+    .inputControl:focus {
+    box-shadow: 0 0 0 3px rgba(91, 45, 110, 0.35) !important;
+    outline: none;
+    }
+
+    .inputControl[readonly] {
+    background-color: #f0f0f0 !important;
+    color: #555;
+    cursor: default;
+    }
+
+    /* Textarea */
+    .textareaControl {
+    border-radius: 14px !important;
+    padding-left: 16px !important;
+    padding-top: 12px !important;
+    height: 80px;
+    background-color: #ffffff !important;
+    border: none !important;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    resize: none;
+    box-shadow: none !important;
+    margin-bottom: 0.75rem;
+    }
+
+    .textareaControl:focus {
+    box-shadow: 0 0 0 3px rgba(91, 45, 110, 0.35) !important;
+    outline: none;
+    }
+
+    /* Botón Confirmar */
+    .botonFormulario {
+    color: #ffffff;
+    background-color: #5B2D6E;
+    border-radius: 999px;
+    height: 48px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    letter-spacing: 0.3px;
+    width: 100%;
+    margin-top: 0.5rem;
+    }
+
+    .botonFormulario:hover {
+    background-color: #4a2459;
+    }
+
+    /* ── RESPONSIVE ── */
+
+    /* Móvil pequeño */
+    @media (max-width: 576px) {
+    .inputFormulario {
+        width: 100%;
+    }
+
+    .filaDoble {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .botonFormulario {
+        width: 100%;
+    }
+
+    .modalBody {
+        padding: 0 16px 20px 16px;
+    }
+    }
+
+    /* Tablet */
+    @media (min-width: 577px) and (max-width: 767px) {
+    .inputFormulario {
+        width: 90%;
+    }
+
+    .botonFormulario {
+        width: 90%;
+    }
+    }
+
+    /* Desktop normal */
+    @media (min-width: 768px) {
+    .inputFormulario {
+        width: 75%;
+    }
+
+    .botonFormulario {
+        width: 75%;
+    }
+    }
+
+    /* Desktop grande */
+    @media (min-width: 992px) {
+    .inputFormulario {
+        width: 65%;
+    }
+
+    .botonFormulario {
+        width: 65%;
+    }
+    }
