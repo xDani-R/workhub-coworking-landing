@@ -1,29 +1,49 @@
+/* ================================
+  IMPORTS DE SECCIONES
+================================ */
+@import url("navbar.css");
+@import url("hero.css");
+@import url("gallery.css");
+@import url("features.css");
+@import url("reservas.css");
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+
 /* Inter desde assets/fonts/ */
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/Inter_18pt-Regular.ttf') format('truetype');
-    font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Inter_18pt-Regular.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/Inter_18pt-Bold.ttf') format('truetype');
-    font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Inter_18pt-Bold.ttf') format('truetype');
+  font-display: swap;
 }
 
 .aboutus {
   background-color: #f9f9f9;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .aboutus-content {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1800px;
+  margin: 7%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -33,8 +53,8 @@
 .aboutus-content h1 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 2.5rem;
-  color: #1a1a1a;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #333333;
   margin: 0 0 1.5rem 0;
   letter-spacing: -0.02em;
   grid-column: 1;
@@ -43,13 +63,14 @@
 .aboutus-content p {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 1.500rem;
   line-height: 1.7;
   color: #333;
   text-align: left;
   grid-column: 1;
   max-width: 600px;
-  margin: 0 0 0.1rem 0;  /* ← CAMBIA ESTE VALOR */
+  margin: 0 0 0.1rem 0;
+  /* ← CAMBIA ESTE VALOR */
 }
 
 .aboutus-content p:last-of-type {
@@ -63,7 +84,7 @@
   height: 100%;
   min-height: 400px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -85,12 +106,12 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .aboutus-content h1,
   .aboutus-content p {
     grid-column: 1;
   }
-  
+
   .aboutus-content img {
     grid-column: 1;
     grid-row: auto;
@@ -112,8 +133,16 @@
     font-size: 1rem;
     line-height: 1.6;
   }
-  
+
   .aboutus-content img {
     min-height: 250px;
   }
 }
+
+.scrollable {
+  transition: top 0.3s;
+}
+
+
+
+
