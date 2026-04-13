@@ -1,0 +1,98 @@
+    .cardEspacio {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .cardEspacio:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    }
+
+    .cardImgTop {
+    height: 210px;
+    object-fit: cover;
+    border-radius: 0;
+    }
+
+    .cardBody {
+    padding: 14px 16px 8px 16px;
+    background-color: #EEEEEE;
+    }
+
+    .cardTitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+    line-height: 1.35;
+    }
+
+    .cardPrecio {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 12px;
+    font-weight: 400;
+    }
+
+    /* Amenidades como chips planos */
+    .amenidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+    }
+
+    .badgeAmenidad {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+    }
+
+    .badgeAmenidad + .badgeAmenidad::before {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #ddd;
+    margin-right: 6px;
+    }
+
+    /* Card footer */
+    .cardFooter {
+    background: #EEEE;
+    border-top: none;
+    padding: 8px 16px 16px 16px;
+    }
+
+    /* Botón Reservar */
+    .btnReservar {
+    background-color: #5B2D6E;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 11px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    letter-spacing: 0.3px;
+    }
+
+    .btnReservar:hover {
+    background-color: #4a2459;
+    }

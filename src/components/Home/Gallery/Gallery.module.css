@@ -1,0 +1,92 @@
+    /* ================================
+    GALERÍA GRID
+    ================================ */
+
+    .customGalleryContainer {
+    padding: 60px 10%;
+    background-color: #f8f7f4;
+    font-family: 'Inter', sans-serif;
+    }
+
+    .galleryGrid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: start;
+    }
+
+    .gridItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    }
+
+    /* ── Texto superior ── */
+    .textBlockTop {
+    grid-column: 1 / 2;
+    }
+
+    .textBlockTop h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    }
+
+    .textBlockTop p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    }
+
+    .upgradeLine {
+    text-decoration: underline wavy;
+    text-decoration-color: #FDD003;
+    }
+
+    /* ── Imagen vertical larga ── */
+    .tallImage {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    }
+
+    /* ── Bloque de texto lateral ── */
+    .textBlockSide {
+    grid-column: 2 / 3;
+    grid-row: 3;
+    padding-top: 10px;
+    }
+
+    .textBlockSide h3 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 12px;
+    }
+
+    .textBlockSide p {
+    color: #555;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    }
+
+    /* ================================
+    RESPONSIVE
+    ================================ */
+
+    @media (max-width: 768px) {
+    .galleryGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .tallImage {
+        grid-row: auto;
+        grid-column: auto;
+    }
+    }
