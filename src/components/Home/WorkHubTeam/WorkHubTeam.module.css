@@ -1,0 +1,111 @@
+    /* ================================
+    ABOUT US
+    ================================ */
+
+    .aboutus {
+    background-color: #f9f9f9;
+    padding: 2rem 2rem;
+    width: 100%;
+    margin-bottom: 50px;
+    }
+
+    .aboutusContent {
+    max-width: 1800px;
+    margin: 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    }
+
+    .aboutusContent h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: #333333;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.02em;
+    grid-column: 1;
+    }
+
+    .aboutusContent p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: #333;
+    text-align: left;
+    grid-column: 1;
+    max-width: 600px;
+    margin: 0 0 0.1rem 0;
+    }
+
+    .aboutusContent p:last-of-type {
+    margin-bottom: 0;
+    }
+
+    .aboutusContent img {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .aboutusContent img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ── Subrayado ondulado ── */
+    .underlineWave {
+    text-decoration: underline wavy #FFD700 3px;
+    text-underline-offset: 8px;
+    }
+
+    /* ================================
+    RESPONSIVE
+    ================================ */
+
+    @media (max-width: 968px) {
+    .aboutusContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .aboutusContent h1,
+    .aboutusContent p {
+        grid-column: 1;
+    }
+
+    .aboutusContent img {
+        grid-column: 1;
+        grid-row: auto;
+        min-height: 300px;
+        margin-top: 1rem;
+    }
+    }
+
+    @media (max-width: 768px) {
+    .aboutus {
+        padding: 3rem 1.5rem;
+    }
+
+    .aboutusContent h1 {
+        font-size: 2rem;
+    }
+
+    .aboutusContent p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .aboutusContent img {
+        min-height: 250px;
+    }
+    }

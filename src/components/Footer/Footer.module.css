@@ -1,0 +1,235 @@
+    /* ================================
+    FOOTER
+    ================================ */
+
+    .footer {
+    background-color: #ffffff;
+    padding: 48px 40px 24px 40px;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 40px;
+    }
+
+    .footerLogo {
+    margin-bottom: 32px;
+    }
+
+    /* ── Grid de columnas ── */
+    .footerGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 40px;
+    align-items: start;
+    }
+
+    .footerSubscribe {
+    grid-column: span 1;
+    }
+
+    /* ── Títulos de columna ── */
+    .footerColTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 12px;
+    display: block;
+    }
+
+    /* ── Links del footer ── */
+    .footerCol ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    }
+
+    .withoutlist1 {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    transition: color 0.2s;
+    }
+
+    .withoutlist1:hover {
+    color: #0d6efd;
+    }
+
+    /* ── Suscripción ── */
+    .footerSubscribe p strong {
+    font-size: 14px;
+    color: #111111;
+    display: block;
+    margin-bottom: 12px;
+    }
+
+    .subscribeForm {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    }
+
+    .subscribeForm input {
+    flex-grow: 1;
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+    }
+
+    .subscribeForm input:focus {
+    border-color: #0d6efd;
+    }
+
+    .subscribeForm button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    }
+
+    .subscribeForm button:hover {
+    background-color: #0b5ed7;
+    }
+
+    .subscribeDesc {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 10px;
+    line-height: 1.5;
+    }
+
+    /* ── Pie del footer ── */
+    .rayita {
+
+    border-top: 1px solid #6b6b6b;
+    margin: 0;
+    }
+
+    .footerBottom {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    }
+
+    .footerBottomLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    }
+
+    .footerBottomLinks a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    transition: color 0.2s;
+    }
+
+    .footerBottomLinks a:hover {
+    color: #0d6efd;
+    }
+
+    .footerCopyright {
+    font-size: 12px;
+    color: #888888;
+    }
+
+    /* ================================
+    RESPONSIVE MÓVIL
+    ================================ */
+
+    @media (max-width: 767px) {
+
+    .footer {
+        padding: 32px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footerSubscribeMobile { order: 1; display: block; }
+    .footerGrid            { order: 2; margin-bottom: 0; }
+    .footerBottom          { order: 5; }
+    .rayita                { order: 3; }
+    .footerLogo            { order: 4; margin-top: 20px; margin-bottom: 8px; }
+
+    /* Ocultar suscripción desktop en móvil */
+    .footerSubscribeDesktop {
+        display: none !important;
+    }
+
+    /* Input más grande en móvil */
+    .subscribeForm input {
+        padding: 14px 22px;
+        font-size: 15px;
+    }
+
+    .subscribeForm button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    /* Título centrado en móvil */
+    .footerSubscribeMobile p strong {
+        text-align: center;
+        display: block;
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    /* Grid en columna */
+    .footerGrid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footerBottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .footerBottomLinks {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 12px 16px;
+    }
+    }
+
+    /* ================================
+    DESKTOP: ocultar versión móvil
+    ================================ */
+
+    @media (min-width: 768px) {
+    .footerSubscribeMobile {
+        display: none;
+    }
+    }
+
+    /* ================================
+    TABLET
+    ================================ */
+
+    @media (min-width: 768px) and (max-width: 991px) {
+    .footerGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footerSubscribe {
+        grid-column: span 2;
+    }
+    }
