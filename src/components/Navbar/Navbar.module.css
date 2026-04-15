@@ -27,6 +27,22 @@
     color: #5C5270;
     }
 
+    .btnReserva {
+    background-color: #5B2D6E !important;
+    color: #ffffff !important; 
+    padding: 8px 20px !important;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    }
+
+    .btnReserva:hover {
+    background-color: #4a245a; /* Slightly darker purple */
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 10px rgba(91, 45, 110, 0.2);
+    }
+
     /* ================================
     RESPONSIVE MÓVIL
     ================================ */

@@ -5,25 +5,25 @@
     {
         id: 'c-element-one',
         itemClass: styles.carrouselItemOne,
-        tag: 'EL LUGAR DONDE LAS IDEAS CRECEN',
-        title: <>Deja el café de casa. <br /> Únete a nuestra comunidad.</>,
-        btnText: 'RESERVAR',
+        tag: 'Una comunidad para trabajar juntos',
+        title: <>Espacios de cowork + salas creativas</>,
+        btnText: 'Explora el espacio',
         btnTarget: 'form-section',
     },
     {
         id: 'c-element-two',
         itemClass: styles.carrouselItemTwo,
-        tag: 'AMBIENTES QUE INSPIRAN',
-        title: <>Salas privadas y espacios<br />abiertos para colaborar.</>,
+        tag: 'Ambientes que inspiran',
+        title: <>Salas privadas y espacios abiertos para colaborar.</>,
         btnText: 'VER ESPACIOS',
         btnTarget: 'gallery-section',
     },
     {
         id: 'c-element-three',
         itemClass: styles.carrouselItemThree,
-        tag: 'NETWORKING REAL',
-        title: <>Conecta con profesionales<br />que piensan como tú.</>,
-        btnText: 'CONOCER MÁS',
+        tag: 'Networking real',
+        title: <>Conecta con profesionales que piensan como tú.</>,
+        btnText: 'Conocer más',
         btnTarget: 'aboutus-section',
     },
     ];
@@ -44,9 +44,9 @@
     const next = () => goTo(current + 1);
     const prev = () => goTo(current - 1);
 
-    // Autoplay cada 5 segundos
+    // Autoplay cada 10 segundos
     useEffect(() => {
-        intervalRef.current = setInterval(next, 5000);
+        intervalRef.current = setInterval(next, 10000);
         return () => clearInterval(intervalRef.current);
     }, [current]);
 
@@ -63,7 +63,7 @@
             >
                 <div className={styles.carrouselBody}>
                 <p>{slide.tag}</p>
-                <h1>{slide.title}</h1>
+                <h1><span>{slide.title}</span></h1>
                 <button onClick={() => scrollTo(slide.btnTarget)}>
                     {slide.btnText}
                 </button>
