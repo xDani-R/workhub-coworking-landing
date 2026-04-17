@@ -1,0 +1,31 @@
+.hero {
+    padding: 80px 0;
+}
+
+.tag {
+    color: #5B2D6E;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.title {
+    color: #000;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.text {
+    color: #000;
+}
+
+.features {
+    color: #000;
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.image {
+    border-radius: 12px;
+}

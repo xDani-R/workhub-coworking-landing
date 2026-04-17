@@ -1,0 +1,23 @@
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.image {
+    height: 100px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    color: #5B2D6E;
+    font-size: 15px;
+}
+
+.title {
+    color: #5B2D6E;
+    font-size: 19px;
+    font-weight: 700;
+}

@@ -1,0 +1,12 @@
+.section {
+    background: #EADFFF;
+    padding: 60px 0;
+}
+
+.values {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    color: #5B2D6E;
+    font-weight: 650;
+}
