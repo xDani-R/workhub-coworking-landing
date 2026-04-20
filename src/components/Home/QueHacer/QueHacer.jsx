@@ -8,17 +8,17 @@ const QueHacer = () => {
     {
       title: 'Coworking compartido',
       description: 'Trabaja a tu ritmo en un espacio cómodo, abierto y pensado para conectar con otras personas.',
-      icon: CoworkingIcon, // Placeholder
+      icon: CoworkingIcon
     },
     {
       title: 'Salas de reuniones',
       description: 'Espacios pensados para reunir ideas, equipos y proyectos.',
-      icon: MeetingIcon, // Placeholder
+      icon: MeetingIcon
     },
     {
       title: 'Eventos y talleres',
       description: 'Actividades, charlas y encuentros que activan la comunidad y generan nuevas oportunidades.',
-      icon: WorkshopIcon, // Placeholder
+      icon: WorkshopIcon
     }
   ];
 

@@ -56,16 +56,16 @@
 
                 {/* Links de navegación */}
                 <nav className="collapse navbar-collapse" id="navbarPrincipal">
-                <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1 ${styles.listaNave}`}>
+                <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-2 ${styles.listaNave}`}>
 
                     <li className="nav-item">
-                    <a className="nav-link" href="/#aboutus-section">Workhub Team</a>
+                    <a className="nav-link" href="/#aboutus-section">Quiénes Somos</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="/nosotros">Comunidad</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/#sedes">Ubicación</a>
+                    <a className="nav-link" href="/#sedes">Beneficios</a>
                     </li>
                     <li className="nav-item">
                         <a className={`nav-link ${styles.btnReserva}`} href="/reservas">
