@@ -10,7 +10,7 @@
         img: imgPenalolen,
         alt: 'Sede Peñalolen',
         titulo: 'Sede Peñalolen',
-        direccion: 'Comunidad Ecológica 1234, Peñalolen, RM.',
+        direccion: 'Av. Grecia #48, Peñalolen, RM.',
     },
     {
         id: 'la-reina',
@@ -24,7 +24,7 @@
         img: imgNunoa,
         alt: 'Sede Ñuñoa',
         titulo: 'Sede Ñuñoa',
-        direccion: 'Calle Simón Bolívar 4500, Ñuñoa, RM.',
+        direccion: 'Calle Simón Bolívar #4500, Ñuñoa, RM.',
     },
     ];
 
