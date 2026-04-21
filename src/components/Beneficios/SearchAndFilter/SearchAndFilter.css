@@ -1,0 +1,56 @@
+.search-filter-container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.search-input-wrapper .form-control {
+  height: 50px;           /* ← ALTURA DEL INPUT */
+  padding: 12px 16px;     /* ← PADDING INTERNO */
+  font-size: 16px;        /* ← TAMAÑO DEL TEXTO */
+  border-radius: 8px;     /* ← ESQUINAS REDONDEADAS */
+}
+
+.search-select-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-select-wrapper .form-select {
+  height: 50px;           /* ← ALTURA DEL SELECT */
+  padding: 12px 16px;     /* ← PADDING INTERNO */
+  font-size: 16px;        /* ← TAMAÑO DEL TEXTO */
+  border-radius: 8px;     /* ← ESQUINAS REDONDEADAS */
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .search-filter-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0%;
+  }
+
+  .search-input-wrapper,
+  .search-select-wrapper {
+    flex: 1 1 100%;
+    padding: 0%;
+  }
+
+  .search-input-wrapper .form-control,
+  .search-select-wrapper .form-select {
+    height: 45px;
+    padding: 10px 12px;
+  }
+}
