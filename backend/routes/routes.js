@@ -1,0 +1,1 @@
+// vincular el nombre de una ruta y la funcion que ejecuta la ruta
