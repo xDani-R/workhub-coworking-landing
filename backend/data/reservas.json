@@ -1,0 +1,14 @@
+{
+  "reservas": [
+    {
+      "id": "test-123",
+      "salaId": "lr-1",
+      "nombreCliente": "Juan Pérez",
+      "email": "juan@test.com",
+      "fecha": "2026-04-25",
+      "horaInicio": "10:00",
+      "horaFin": "12:00",
+      "estado": "confirmada"
+    }
+  ]
+}
