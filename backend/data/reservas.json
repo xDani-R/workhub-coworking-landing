@@ -1,7 +1,7 @@
 {
   "reservas": [
     {
-      "id": "test-123",
+      "id": 1,
       "salaId": "lr-1",
       "nombreCliente": "Juan Pérez",
       "email": "juan@test.com",

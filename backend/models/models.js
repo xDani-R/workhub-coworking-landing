@@ -28,7 +28,7 @@ const deleteReservation = async (id) => {
         const reservas = jsonData.reservas; // Asumiendo estructura { "reservas": [] }
 
         // 2. Buscar el índice de la reserva
-        const index = reservas.findIndex(reserva => reserva.id === id);
+        const index = reservas.findIndex(reserva => reserva.id == id);
 
         // 3. Si no se encuentra, retornar null
         if (index === -1) {
