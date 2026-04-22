@@ -3,6 +3,7 @@ import Layout from '../src/components/Layout/Layout';
 import {Home} from '../pages/Home';
 import About from '../pages/About';
 import Reservas from '../pages/Reservas/Reservas'
+import Beneficios from '../pages/Beneficios/Beneficios';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/nosotros" element={<About />} />
           <Route path="/reservas" element={<Reservas />} />
+          <Route path="/beneficios" element={<Beneficios />} />
         </Route>
       </Routes>
     </BrowserRouter>

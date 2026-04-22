@@ -65,7 +65,7 @@
                     <a className="nav-link" href="/nosotros">Comunidad</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/#sedes">Beneficios</a>
+                    <a className="nav-link" href="/beneficios">Beneficios</a>
                     </li>
                     <li className="nav-item">
                         <a className={`nav-link ${styles.btnReserva}`} href="/reservas">
