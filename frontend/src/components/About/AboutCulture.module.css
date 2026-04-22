@@ -1,38 +1,46 @@
 .section {
-    /* Ajusté el padding vertical a 40px para que no esté pegado */
-    /* Mantenemos tus 125px laterales para la alineación */
-    padding: 40px 125px; 
+    /* Mantenemos tus 125px laterales para la alineación perfecta */
+    padding: 30px 175px; 
 }
 
 .card {
     border: none;
-    background: transparent; /* Fondo transparente para integrar con la página */
+    background: transparent;
     border-radius: 12px;
-    height: 100%; /* Asegura que todas midan lo mismo */
+    height: 100%;
 }
 
 .image {
     width: 100%;
-    /* Cambiado de 16/9 a 20/6 para hacerlo más "alargado" y rectangular */
-    aspect-ratio: 20 / 6;
+    /* Tu nueva proporción 20/6 para el look ultra-rectangular */
+    aspect-ratio: 30 / 10;
     background: #d9d9d9;
+    overflow: hidden;    /* Asegura que la imagen no se salga del redondeado */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    color: #888;
     margin-bottom: 16px;
 }
 
+/* Clase vital para que tus fotos reales encajen en el 20/6 */
+.imgFluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto asegura que la imagen llene el espacio sin distorsionarse */
+}
+
 .title {
+    padding: 10px;
     color: #5B2D6E;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
 .text {
-    color: #444;
-    font-size: 14px;
+    padding: 10px;
+    color: #000000;
+    font-size: 17px;
     line-height: 1.5;
+    font-weight: 490;
 }

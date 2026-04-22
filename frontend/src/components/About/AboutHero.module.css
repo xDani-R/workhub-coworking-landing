@@ -60,7 +60,6 @@
 
 /* Cuadritos grises sobre el texto de features */
 .features span::before {
-    content: "";
     width: 32px;
     height: 32px;
     background-color: #e0e0e0;
