@@ -3,9 +3,9 @@ import style from "./AboutCulture.module.css";
 
 const AboutCulture = () => {
     return (
-        <section className="py-5">
-            <Container>
-                <Row>
+        <section className={style.section}>
+            <Container fluid className="px-md-5">
+                <Row className="g-4">
                     <Col md={6} className="mb-3">
                         <Card className={style.card}>
                             <div className={style.image}>X - foto</div>

@@ -7,11 +7,11 @@ const AboutPurpose = () => {
             <Container>
                 <Row>
                     <Col md={4}>
-                        <h4>Nuestro propósito compartido</h4>
+                        <h4 className={style.title}>Nuestro propósito compartido</h4>
                         </Col>
 
                         <Col md={8}>
-                        <p>
+                        <p className={style.text}>
                             Cada rol, cada desición y cada detalle están pensados para que puedas trabajar, crear y conectar en un ambiente que inspira y potencia proyectos.
                         </p>
 

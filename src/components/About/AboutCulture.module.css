@@ -1,23 +1,38 @@
+.section {
+    /* Ajusté el padding vertical a 40px para que no esté pegado */
+    /* Mantenemos tus 125px laterales para la alineación */
+    padding: 40px 125px; 
+}
+
 .card {
+    border: none;
+    background: transparent; /* Fondo transparente para integrar con la página */
     border-radius: 12px;
-    overflow: hidden;
+    height: 100%; /* Asegura que todas midan lo mismo */
 }
 
 .image {
-    height: 100px;
-    background: #ccc;
+    width: 100%;
+    /* Cambiado de 16/9 a 20/6 para hacerlo más "alargado" y rectangular */
+    aspect-ratio: 20 / 6;
+    background: #d9d9d9;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.text {
-    color: #5B2D6E;
-    font-size: 15px;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 16px;
 }
 
 .title {
     color: #5B2D6E;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.text {
+    color: #444;
+    font-size: 14px;
+    line-height: 1.5;
 }

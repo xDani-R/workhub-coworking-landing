@@ -1,12 +1,46 @@
+/* AboutHighlight.module.css */
+
 .highlight {
-    margin: 25px;
-    background:  #EFE2FF;
-    padding: 60px 0;
-    border-radius: 12px;
+    /* --- Márgenes Laterales Precisos --- */
+    /* Separación de los bordes izquierdo y derecho de la pantalla */
+    margin-left: 182px;  /* Ajuste para el margen '120' de tu dibujo */
+    margin-right: 182px; /* Ajuste para el margen '120' de tu dibujo */
+    
+    /* Fondo lila claro */
+    background-color: #f0e6ff;
+    
+    /* Padding para el contenido dentro de la franja */
+    padding: 50px;
+    border-radius: 16px; /* Bordes redondeados */
+    
+    /* Margen arriba/abajo para separar de otras secciones */
+    margin-top: 40px; 
+    margin-bottom: 40px;
 }
 
+/* Contenedor fluido interno para ignorar los anchos de Bootstrap */
+.container {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
+
+/* --- Contenido Interno (Se mantiene) --- */
 .iconBox {
-    width: 60px;
-    height: 60px;
-    background: #ccc;
+    width: 80px;
+    height: 80px;
+    background: #d9d9d9;
+    border-radius: 4px;
+}
+
+.title {
+    color: #5B2D6E;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.text {
+    color: #333;
+    font-size: 24px;
+    line-height: 1.5;
 }
