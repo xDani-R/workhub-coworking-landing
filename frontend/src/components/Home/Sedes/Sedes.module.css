@@ -1,18 +1,28 @@
     /* ================================
     SEDES
     ================================ */
+    .sedes {
+      margin-top: 70px;
+     padding: 0 10% 60px 10%;
+    }
 
+    .container {
+     max-width: 100%;
+     margin: 0 auto;
+     padding: 0;
+    }
+/*
     .sedes {
     margin-top: 70px;
     padding-bottom: 60px;
     }
 
     .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
     }
-
+*/
     /* ── Título ── */
     .interTitle {
     font-weight: 700;
@@ -21,7 +31,7 @@
     text-align: left;
     color: #333333;
     }
-
+/*
     .wavySedes {
     text-decoration-line: underline;
     text-decoration-style: wavy;
@@ -42,8 +52,8 @@
 
     /* ── Cards ── */
     .card {
-    background-color: #054560;
-    color: #fff;
+    background-color:#f8f7f4;
+    color: #555;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
