@@ -2,6 +2,13 @@ const Models = require('../models/models');
 
 const Controllers = {
 
+    // ── GET /espacios/ ──────────────────────────────────────────────────
+    getEspacios: (req, res) => {
+        const data = Models.findAll();
+        // Respondemos con el código 200 y los datos en JSON
+        res.status(200).json(data); 
+    },
+
     // ── POST /reservas ────────────────────────────────────────────────────────
     createReserva: (req, res) => {
         try {
@@ -90,7 +97,7 @@ const Controllers = {
                 message: 'Error interno del servidor al eliminar la reserva'
             });
         }
-    }
+    },
 };
 
 module.exports = Controllers;

@@ -20,6 +20,11 @@ const saveData = (jsonData) => {
 // ─── Models ─────────────────────────────────────────────────────────────────
 
 const Models = {
+    // Función para obtener los datos de los espacios
+    findAll: () => {
+        return getData(); 
+    },
+
 
     // Obtener todas las reservas
     getReservas: () => {

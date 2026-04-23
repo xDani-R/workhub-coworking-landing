@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Controllers = require('../controllers/controllers');
 
+// ── GET /reservas/ ───────────────────────────────────────
+router.get('/espacios', Controllers.getEspacios);
+
 // ── POST /reservas ─────────────────────────────────────────────
 router.post('/reservas', Controllers.createReserva);
 
