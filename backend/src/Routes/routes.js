@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Controllers = require('../controllers/controllers');
 
-// ── GET /reservas/ ───────────────────────────────────────
+// ── GET /espacios/ ───────────────────────────────────────
 router.get('/espacios', Controllers.getEspacios);
 
 // ── POST /reservas ─────────────────────────────────────────────
@@ -13,5 +13,8 @@ router.put('/reservas/:id', Controllers.updateReserva);
 
 // ── DELETE /reservas/:id ───────────────────────────────────────
 router.delete('/reservas/:id', Controllers.deleteReserva);
+
+// ── GET /reservas/ ───────────────────────────────────────
+router.get('/reservas', Controllers.getReservas);
 
 module.exports = router;

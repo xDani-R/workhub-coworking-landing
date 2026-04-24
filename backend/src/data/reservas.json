@@ -5,16 +5,6 @@
       "usuario": "Dani",
       "espacio": "Sala de reuniones",
       "hora": "12:00"
-    },
-    {
-      "id": 1,
-      "salaId": "lr-1",
-      "nombreCliente": "Juan López",
-      "email": "juan@test.com",
-      "fecha": "2026-04-25",
-      "horaInicio": "10:00",
-      "horaFin": "12:00",
-      "estado": "confirmada"
     }
   ]
 }

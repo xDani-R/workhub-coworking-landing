@@ -1,40 +1,49 @@
 const fs = require('fs');
 const path = require('path');
 
-// Ruta al archivo JSON
-const DATA_FILE_PATH = path.join(__dirname, '..', 'data', 'reservas.json');
+// Rutas a los archivo JSON
+const reservasJson = path.join(__dirname, '..', 'data', 'reservas.json');
+const espaciosJson = path.join(__dirname, '..', 'data', 'espacios.json');
+
 
 // ─── Helpers privados ───────────────────────────────────────────────────────
 
-const getData = () => {
-    const rawData = fs.readFileSync(DATA_FILE_PATH, 'utf-8');
+const getDataReservas = () => {
+    const rawData = fs.readFileSync(reservasJson, 'utf-8');
     const parsed = JSON.parse(rawData || '{}');
     // Soporta tanto { reservas: [] } como un array directo []
     return Array.isArray(parsed) ? { reservas: parsed } : parsed;
 };
 
+const getDataEspacios = () => {
+    const rawData = fs.readFileSync(espaciosJson, 'utf-8');
+    const parsed = JSON.parse(rawData || '{}');
+    return Array.isArray(parsed) ? { espacios: parsed } : parsed;
+};
+
 const saveData = (jsonData) => {
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(jsonData, null, 2));
+    fs.writeFileSync(reservasJson, JSON.stringify(jsonData, null, 2));
 };
 
 // ─── Models ─────────────────────────────────────────────────────────────────
 
 const Models = {
-    // Función para obtener los datos de los espacios
-    findAll: () => {
-        return getData(); 
+    // Obtener todos los espacios
+    getEspacios: () => {
+        const jsonData = getDataEspacios();
+        return jsonData.espacios || [];
     },
 
 
     // Obtener todas las reservas
     getReservas: () => {
-        const jsonData = getData();
+        const jsonData = getDataReservas();
         return jsonData.reservas || [];
     },
 
     // Guardar todas las reservas (reemplaza el array completo)
     saveReservas: (reservas) => {
-        const jsonData = getData();
+        const jsonData = getDataReservas();
         jsonData.reservas = reservas;
         saveData(jsonData);
     },
@@ -42,7 +51,7 @@ const Models = {
     // Eliminar una reserva por ID
     deleteReservation: async (id) => {
         try {
-            const jsonData = getData();
+            const jsonData = getDataReservas();
             const reservas = jsonData.reservas || [];
 
             const index = reservas.findIndex(reserva => reserva.id == id);

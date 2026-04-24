@@ -4,7 +4,7 @@ const Controllers = {
 
     // ── GET /espacios/ ──────────────────────────────────────────────────
     getEspacios: (req, res) => {
-        const data = Models.findAll();
+        const data = Models.getEspacios();
         // Respondemos con el código 200 y los datos en JSON
         res.status(200).json(data); 
     },
@@ -97,6 +97,13 @@ const Controllers = {
                 message: 'Error interno del servidor al eliminar la reserva'
             });
         }
+    },
+
+    // ── GET /reservas/ ──────────────────────────────────────────────────
+    getReservas: (req, res) => {
+        const data = Models.getReservas();
+        // Respondemos con el código 200 y los datos en JSON
+        res.status(200).json(data); 
     },
 };
 
