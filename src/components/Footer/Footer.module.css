@@ -1,235 +1,282 @@
-    /* ================================
+/* ============================================
+   VARIABLES DEL FOOTER (edita aquí todos los colores)
+   ============================================ */
+:root {
+  --footer-bg: #54385B;              /* Fondo general del footer */
+  --footer-border-top: #e5e5e5;      /* Color de la línea superior */
+  --footer-text-primary: #FFFFFF;    /* Texto principal (títulos) */
+  --footer-text-secondary: #FFFFFF;  /* Texto secundario (enlaces) */
+  --footer-text-light: #FFFFFF;      /* Texto más claro */
+  --footer-link-color: #FFFFFF;      /* Color de los enlaces */
+  --footer-link-hover: #FFFFFF;      /* Color de los enlaces al hover */
+  --footer-input-border: #FFFFFF;    /* Borde del input (blanco) */
+  --footer-input-focus: #FFFFFF;     /* Color del borde al enfocar */
+  --footer-rayita: #FFFFFF;          /* Línea divisoria inferior */
+
+  /* Variables para la tarjeta de suscripción */
+  --subscribe-card-bg: #54385B;      /* Fondo de la tarjeta */
+  --subscribe-title-color: #FFFFFF;  /* Título "Comunidad en tu bandeja" */
+  --subscribe-input-text: #FFFFFF;   /* Texto dentro del input */
+  --subscribe-button-bg: #815588;    /* Fondo del botón */
+  --subscribe-button-text: #FFFFFF;  /* Flecha blanca */
+  --subscribe-button-hover-bg: #6a3f6e; /* Hover más oscuro */
+
+  /* ===== NUEVAS VARIABLES PARA CONTROLAR MÁRGENES LATERALES ===== */
+  --footer-padding-x: 60px;    /* ← Cambia este valor para mover bordes izquierdo/derecho (ej: 20px, 60px) */
+  --footer-padding-y: 60px 150px; /* arriba/abajo (no los toques si no quieres) */
+}
+
+/* ================================
     FOOTER
     ================================ */
 
-    .footer {
-    background-color: #ffffff;
-    padding: 48px 40px 24px 40px;
-    border-top: 1px solid #e5e5e5;
-    margin-top: 40px;
-    }
+.footer {
+  background-color: var(--footer-bg);
+  padding: var(--footer-padding-y) var(--footer-padding-x);
+  border-top: 1px solid var(--footer-border-top);
+  margin-top: 60px;
+}
 
-    .footerLogo {
-    margin-bottom: 32px;
-    }
+.footerLogo {
+  margin-bottom: 32px;
+}
 
-    /* ── Grid de columnas ── */
-    .footerGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    margin-bottom: 40px;
-    align-items: start;
-    }
+/* ── Grid de columnas ── */
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+  align-items: start;
+}
 
-    .footerSubscribe {
-    grid-column: span 1;
-    }
+.footerSubscribe {
+  grid-column: span 1;
+  background-color: var(--subscribe-card-bg);
+  border-radius: 20px;
+  padding: 30px 20px;
+  position: relative;
+}
 
-    /* ── Títulos de columna ── */
-    .footerColTitle {
-    font-size: 14px;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 12px;
-    display: block;
-    }
+/* ── Títulos de columna ── */
+.footerColTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--footer-text-primary);
+  margin-bottom: 12px;
+  display: block;
+}
 
-    /* ── Links del footer ── */
-    .footerCol ul {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-    }
+/* ── Links del footer ── */
+.footerCol ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    .withoutlist1 {
-    text-decoration: none;
-    color: #333333;
-    font-size: 13px;
-    transition: color 0.2s;
-    }
+.withoutlist1 {
+  text-decoration: none;
+  color: var(--footer-link-color);
+  font-size: 13px;
+  transition: color 0.2s;
+}
 
-    .withoutlist1:hover {
-    color: #0d6efd;
-    }
+.withoutlist1:hover {
+  color: var(--footer-link-hover);
+}
 
-    /* ── Suscripción ── */
-    .footerSubscribe p strong {
-    font-size: 14px;
-    color: #111111;
-    display: block;
-    margin-bottom: 12px;
-    }
+/* ── Tarjeta de suscripción ── */
+.footerSubscribe p strong {
+  font-size: 16px;
+  color: var(--subscribe-title-color);
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
 
-    .subscribeForm {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    }
+.subscribeForm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  position: relative;
+}
 
-    .subscribeForm input {
-    flex-grow: 1;
-    padding: 10px 18px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    font-size: 13px;
-    outline: none;
-    transition: border-color 0.2s;
-    }
+.subscribeForm input {
+  flex-grow: 1;
+  padding: 19px 18px;
+  border: 1px solid var(--footer-input-border);
+  border-radius: 30px;
+  font-size: 13px;
+  outline: none;
+  background-color: var(--footer-bg);
+  color: var(--subscribe-input-text);
+  transition: border-color 0.2s;
+  padding-left: 18px;
+  padding-right: 18px;
+  max-width: 350px;
+}
 
-    .subscribeForm input:focus {
-    border-color: #0d6efd;
-    }
+.subscribeForm input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
 
-    .subscribeForm button {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background-color: #0d6efd;
-    color: white;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s;
-    }
+.subscribeForm input:focus {
+  border-color: var(--footer-input-focus);
+}
 
-    .subscribeForm button:hover {
-    background-color: #0b5ed7;
-    }
+/* Botón con desplazamiento a la izquierda usando transform */
+.subscribeButton {
+  background-color: var(--subscribe-button-bg);
+  color: var(--subscribe-button-text);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transform: translateX(-60px);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.2s, color 0.2s;
+}
 
-    .subscribeDesc {
-    font-size: 12px;
-    color: #888888;
-    margin-top: 10px;
-    line-height: 1.5;
-    }
+.subscribeButton:hover {
+  background-color: var(--subscribe-button-hover-bg);
+  color: var(--subscribe-button-hover-text);
+}
 
-    /* ── Pie del footer ── */
-    .rayita {
+.subscribeDesc {
+  font-size: 12px;
+  color: var(--footer-text-light);
+  margin-top: 16px;
+  line-height: 1.5;
+}
 
-    border-top: 1px solid #6b6b6b;
-    margin: 0;
-    }
+/* ── Pie del footer ── */
+.rayita {
+  border-top: 1px solid var(--footer-rayita);
+  margin: 0;
+}
 
-    .footerBottom {
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    }
+.footerBottom {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
 
-    .footerBottomLinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    }
+.footerBottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
 
-    .footerBottomLinks a {
-    text-decoration: none;
-    color: #333333;
-    font-size: 13px;
-    transition: color 0.2s;
-    }
+.footerBottomLinks a {
+  text-decoration: none;
+  color: var(--footer-link-color);
+  font-size: 13px;
+  transition: color 0.2s;
+}
 
-    .footerBottomLinks a:hover {
-    color: #0d6efd;
-    }
+.footerBottomLinks a:hover {
+  color: var(--footer-link-hover);
+}
 
-    .footerCopyright {
-    font-size: 12px;
-    color: #888888;
-    }
+.footerCopyright {
+  font-size: 12px;
+  color: var(--footer-text-light);
+}
 
-    /* ================================
+/* ================================
     RESPONSIVE MÓVIL
     ================================ */
+@media (max-width: 767px) {
+  .footer {
+    padding: 32px 20px 20px 20px;  /* En móvil puedes ajustar directamente o usar variable propia */
+  }
 
-    @media (max-width: 767px) {
+  .footerSubscribeMobile { order: 1; display: block; }
+  .footerGrid            { order: 2; }
+  .footerBottom          { order: 5; }
+  .rayita                { order: 3; }
+  .footerLogo            { order: 4; margin-top: 20px; }
 
-    .footer {
-        padding: 32px 20px 20px 20px;
-        display: flex;
-        flex-direction: column;
-    }
+  .footerSubscribeDesktop {
+    display: none !important;
+  }
 
-    .footerSubscribeMobile { order: 1; display: block; }
-    .footerGrid            { order: 2; margin-bottom: 0; }
-    .footerBottom          { order: 5; }
-    .rayita                { order: 3; }
-    .footerLogo            { order: 4; margin-top: 20px; margin-bottom: 8px; }
+  .footerSubscribe {
+    padding: 20px;
+  }
 
-    /* Ocultar suscripción desktop en móvil */
-    .footerSubscribeDesktop {
-        display: none !important;
-    }
+  .subscribeForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    /* Input más grande en móvil */
-    .subscribeForm input {
-        padding: 14px 22px;
-        font-size: 15px;
-    }
+  .subscribeButton {
+    transform: none;
+    width: 100%;
+    border-radius: 30px;
+    height: 44px;
+    font-size: 20px;
+  }
 
-    .subscribeForm button {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-    }
+  .subscribeForm input {
+    width: 100%;
+  }
 
-    /* Título centrado en móvil */
-    .footerSubscribeMobile p strong {
-        text-align: center;
-        display: block;
-        font-size: 16px;
-        margin-bottom: 14px;
-    }
+  .footerGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 
-    /* Grid en columna */
-    .footerGrid {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 
-    .footerBottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
+  .footerBottomLinks {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 12px 16px;
+  }
+}
 
-    .footerBottomLinks {
-        display: grid;
-        grid-template-columns: repeat(3, auto);
-        gap: 12px 16px;
-    }
-    }
-
-    /* ================================
+/* ================================
     DESKTOP: ocultar versión móvil
     ================================ */
+@media (min-width: 768px) {
+  .footerSubscribeMobile {
+    display: none;
+  }
+}
 
-    @media (min-width: 768px) {
-    .footerSubscribeMobile {
-        display: none;
-    }
-    }
-
-    /* ================================
+/* ================================
     TABLET
     ================================ */
-
-    @media (min-width: 768px) and (max-width: 991px) {
-    .footerGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footerSubscribe {
-        grid-column: span 2;
-    }
-    }
+@media (min-width: 768px) and (max-width: 991px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footerSubscribe {
+    grid-column: span 2;
+  }
+  .subscribeButton {
+    transform: translateX(-25px);
+  }
+}
