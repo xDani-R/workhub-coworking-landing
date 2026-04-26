@@ -179,19 +179,19 @@ El backend expone los siguientes endpoints. La base de todas las rutas es `http:
 A continuación se muestran capturas de cada endpoint probado en Postman:
 
 ### GET /api/espacios
-![GET Espacios](./backend/src/img/postman/GetEspacios.png)
+![GET Espacios](../backend/src/img/postman/GetEspacios.png)
 
 ### GET /api/reservas
-![GET Reservas](./backend/src/img/postman/GetReservas.png)
+![GET Reservas](../backend/src/img/postman/GetReservas.png)
 
 ### POST /api/reservas
-![POST Reservas](./backend/src/img/postman/Post.png)
+![POST Reservas](../backend/src/img/postman/Post.png)
 
 ### PUT /api/reservas/:id
-![PUT Reservas](./backend/src/img/postman/Put.png)
+![PUT Reservas](../backend/src/img/postman/Put.png)
 
 ### DELETE /api/reservas/:id
-![DELETE Reservas](./backend/src/img/postman/Delete.png)
+![DELETE Reservas](../backend/src/img/postman/Delete.png)
 
 ---
 
