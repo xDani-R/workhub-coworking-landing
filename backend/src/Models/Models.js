@@ -1,4 +1,4 @@
-const fs = require('fs');
+/*const fs = require('fs');
 const path = require('path');
 
 // Rutas a los archivo JSON
@@ -71,4 +71,4 @@ const Models = {
     }
 };
 
-module.exports = Models;
+module.exports = Models;*/

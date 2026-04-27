@@ -1,21 +1,14 @@
+// 1. Importamos Express y Router
 const express = require('express');
 const router = express.Router();
-const Controllers = require('../controllers/controllers');
-const validateReserva = require('../Middlewares/validateReserva');
 
-// ── GET /espacios/ ───────────────────────────────────────
-router.get('/espacios', Controllers.getEspacios);
+// 2. Importamos la función controladora desde controllers.js
+// Ajusta la ruta '../controllers/controllers' si tu estructura de carpetas es diferente
+const { deleteReservationController } = require('../Controllers/Controllers');
 
-// ── POST /reservas ─────────────────────────────────────────────
-router.post('/reservas', validateReserva, Controllers.createReserva);
+// 3. Vinculamos el método HTTP y la URL con la función
+// DELETE /reservas/:id
+router.delete('/reservas/:id', deleteReservationController);
 
-// ── PUT /reservas/:id ──────────────────────────────────────────
-router.put('/reservas/:id', validateReserva, Controllers.updateReserva);
-
-// ── DELETE /reservas/:id ───────────────────────────────────────
-router.delete('/reservas/:id', Controllers.deleteReserva);
-
-// ── GET /reservas/ ───────────────────────────────────────
-router.get('/reservas', Controllers.getReservas);
-
+// 4. Exportamos el router para que index.js pueda usarlo
 module.exports = router;
