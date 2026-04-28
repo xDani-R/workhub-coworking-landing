@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const connectDB = require('./config/database'); // Import your custom connection logic
 

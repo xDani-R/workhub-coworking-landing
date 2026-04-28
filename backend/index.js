@@ -1,4 +1,4 @@
-// index.js - Archivo principal del servidor (conectado a MongoDB)
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');

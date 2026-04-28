@@ -13,7 +13,7 @@ const connectDB = async () => {
   try {
     // Note: Ensure your password and cluster name are correct.
     // Based on your previous error, the connection string format is correct.
-    await mongoose.connect('mongodb+srv://jeff_db_user:ipPJTfycCC47iCgm@workhub.rkzkvvu.mongodb.net/WorkhubDB?appName=WorkHub');
+    await mongoose.connect(process.env.MONGO_URI);
     
     console.log('✅ MongoDB conectado exitosamente');
   } catch (error) {
