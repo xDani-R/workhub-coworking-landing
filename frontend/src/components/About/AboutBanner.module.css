@@ -1,0 +1,39 @@
+.wrapper {
+    padding: 40px 125px;
+}
+
+.banner {
+    background-color: #BBB1EF;
+    border-radius: 20px;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    width: 40%;
+}
+
+.left h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.right {
+    width: 50%;
+    font-size: 25px;
+    color: #5B2D6E;
+}
+
+.text {
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.bold {
+    font-weight: 700;
+    margin-bottom: 10px;
+}

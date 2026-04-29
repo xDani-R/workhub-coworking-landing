@@ -1,8 +1,15 @@
 [
+  
   {
     "id": 1776845508790,
     "usuario": "Dani",
-    "espacio": "Sala de reuniones",
+    "espacio": "Sala Privada",
     "hora": "12:00"
+  },
+  {
+    "id": 1776866271462,
+    "usuario": "Nacho",
+    "espacio": "Sala Privada",
+    "hora": "13:00"
   }
 ]

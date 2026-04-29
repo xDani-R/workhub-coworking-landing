@@ -1,110 +1,69 @@
-/* AboutHero.module.css */
-
 .hero {
-    /* Un padding generoso arriba y abajo para que respire */
-    padding: 95px 0;
-    /* Esto es CLAVE para que los márgenes negativos de Bootstrap funcionen bien */
-    overflow: hidden;
-
-    /* Ajuste para el margen 'num' de tu dibujo */
-    margin-left: -240px;
-    /* Ajuste para el margen 'num' de tu dibujo */
-    margin-right: -10px;
+    padding: 120px 0;
+    background-color: #fff;
 }
 
-/* --- Títulos y Textos (Se mantienen o se ajustan levemente) --- */
-.tag {
-    /* Fondo verde claro del tag */
-    display: inline-block;
-    background-color: #d9e8b1;
-    padding: 4px 12px;
-    border-radius: 4px;
-    color: #5B2D6E;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 20px;
+.container {
+    padding: 0 125px !important;
+}
+
+.topLabel {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 10px;
 }
 
 .title {
+    font-size: 36px;
+    font-weight: 700;
     color: #1a1a1a;
-    font-size: 48px;
-    /* Tamaño del título según Figma */
-    font-weight: 550;
-    line-height: 1.1;
-    margin-bottom: 24px;
-}
-
-.text {
-    color: #333;
-    font-size: 24px;
-    line-height: 1.6;
     margin-bottom: 30px;
 }
 
-.features {
-    display: flex;
-    gap: 30px;
-    /* Separación entre features */
-    margin-top: 20px;
-}
-
-.features span {
-    
-    gap: 12px;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: flex-start;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-/* Cuadritos grises sobre el texto de features */
-.features span::before {
-    width: 32px;
-    height: 32px;
-    background-color: #e0e0e0;
-    margin-bottom: 8px;
-    border-radius: 4px;
-}
-
-/* --- Ajustes para la IMAGEN (A la derecha) --- */
-.image {
-    width: 100%;
-    border-radius: 12px;
-    /* Aseguramos que se expanda para ocupar el espacio de la columna */
-    object-fit: cover;
-    /* Ajuste para el margen 'num' de tu dibujo */
-    margin-left: 229px;
-}
-
-/* .hero {
-    padding: 80px 0;
-}
-
-.tag {
+.iconBar {
+    font-size: 24px;
+    display: inline-flex;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 30px;
     color: #5B2D6E;
     font-weight: 600;
-    font-size: 14px;
 }
 
-.title {
-    color: #000;
-    font-size: 42px;
-    font-weight: 700;
-}
-
-.text {
-    color: #000;
-}
-
-.features {
-    color: #000;
+.iconItem {
     display: flex;
-    gap: 24px;
-    margin-top: 20px;
-    font-size: 14px;
+    align-items: center;
+    gap: 12px;
 }
 
-.image {
-    border-radius: 12px;
-} */
+.barIcon {
+    width: 35px;
+    height: auto;
+    object-fit: contain;
+}
+.divider {
+    color: #ddd;
+    font-weight: 300;
+}
+
+.description {
+    /* max-width: 700px; */
+    font-size: 30px;
+    line-height: 1.6;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.imageWrapper {
+    width: 100%;
+    height: 900px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
