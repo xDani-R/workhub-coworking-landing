@@ -3,6 +3,8 @@ const cors = require('cors')
 const routes = require('./src/Routes/routes')
 const errorHandler = require('./src/Middlewares/errorHandler');
 const logger = require('./src/Middlewares/logger');
+require('dotenv').config();
+require('./src/database/connection');
 
 const app = express()
 const PORT = 3001
