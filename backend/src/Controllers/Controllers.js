@@ -6,13 +6,6 @@ const ControllersReservas = {
 
     // ── POST /reservas ────────────────────────────────────────────────────────
     createReserva: async (req, res) => {
-        try {
-            const reserva = new Reserva(req.body);
-            const reservaCreada = reserva.save();   
-            res.status(201).json({mensaje:'Reserva creada exitosamente', reserva: reserva});
-        } catch (error) {
-            
-        }
     },
 
     // ── PUT /reservas/:id ─────────────────────────────────────────────────────
@@ -58,10 +51,14 @@ const ControllersReservas = {
     },
 
     // ── GET /reservas/ ──────────────────────────────────────────────────
-    getReservas: (req, res) => {
-        const data = Models.getReservas();
-        // Respondemos con el código 200 y los datos en JSON
-        res.status(200).json(data); 
+    getReservas: async (req, res) => {
+        try {
+            const data = await Reserva.find();
+            // Respondemos con el código 200 y los datos en JSON
+            res.status(201).json(data); 
+        } catch (error) {
+            res.status(500).json({mensaje: 'Error al intentar listar las reservas', error: error.message}); 
+        }
     },
 };
 
