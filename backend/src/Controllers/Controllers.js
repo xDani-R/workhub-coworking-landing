@@ -1,72 +1,30 @@
 const Models = require('../models/models');
+const Reserva = require('../Models/Reserva');
+const Espacio = require('../Models/Espacio');
 
-const Controllers = {
-
-    // ── GET /espacios/ ──────────────────────────────────────────────────
-    getEspacios: (req, res) => {
-        const data = Models.getEspacios();
-        // Respondemos con el código 200 y los datos en JSON
-        res.status(200).json(data); 
-    },
+const ControllersReservas = {
 
     // ── POST /reservas ────────────────────────────────────────────────────────
-    createReserva: (req, res) => {
+    createReserva: async (req, res) => {
         try {
-            const reservas = Models.getReservas();
-
-            const nuevaReserva = {
-                id: Date.now(),
-                ...req.body
-            };
-
-            reservas.push(nuevaReserva);
-            Models.saveReservas(reservas);
-
-            return res.status(201).json({
-                success: true,
-                message: 'Reserva creada exitosamente',
-                data: nuevaReserva
-            });
-
+            const reserva = new Reserva(req.body);
+            const reservaCreada = reserva.save();   
+            res.status(201).json({mensaje:'Reserva creada exitosamente', reserva: reserva});
         } catch (error) {
-            console.error('Error en createReserva:', error);
-            return res.status(500).json({
-                success: false,
-                message: 'Error interno del servidor al crear la reserva'
-            });
+            
         }
     },
 
     // ── PUT /reservas/:id ─────────────────────────────────────────────────────
-    updateReserva: (req, res) => {
+    updateReserva: async (req, res) => {
         try {
-            const { id } = req.params;
-            const reservas = Models.getReservas();
-
-            const index = reservas.findIndex(r => r.id == id);
-
-            if (index === -1) {
-                return res.status(404).json({
-                    success: false,
-                    message: `No se encontró la reserva con el ID: ${id}`
-                });
+            const reservaActualizada = await Reserva.findByIdAndUpdate(req.params.id, req.body, {returnDocument: 'after'});
+            if (!reservaActualizada){
+                return res.status(404).json({mensaje: 'No se ha encontrado la reserva especificada'});
             }
-
-            reservas[index] = { ...reservas[index], ...req.body };
-            Models.saveReservas(reservas);
-
-            return res.status(200).json({
-                success: true,
-                message: 'Reserva actualizada exitosamente',
-                data: reservas[index]
-            });
-
+            res.status(201).json({mensaje: 'Reserva actualizada exitosamente', reserva: reservaActualizada});
         } catch (error) {
-            console.error('Error en updateReserva:', error);
-            return res.status(500).json({
-                success: false,
-                message: 'Error interno del servidor al actualizar la reserva'
-            });
+            res.status(500).json({ mensaje: 'Error al actualizar reserva', error });
         }
     },
 
@@ -107,4 +65,29 @@ const Controllers = {
     },
 };
 
-module.exports = Controllers;
+const ControllersEspacios = {
+    // ── GET /espacios/ ──────────────────────────────────────────────────
+    getEspacios: (req, res) => {
+        const data = Models.getEspacios();
+        // Respondemos con el código 200 y los datos en JSON
+        res.status(200).json(data); 
+    },
+
+    crearEspacios: async (req, res) => {
+        try {
+            // Acepta tanto un array como un objeto con clave "espacios"
+            const datos = Array.isArray(req.body) ? req.body : req.body.espacios;
+            
+            const espacios = await Espacio.insertMany(datos);
+            res.status(201).json(espacios);
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    }
+};
+
+const ControllersUsuarios = {
+
+};
+
+module.exports = {ControllersReservas, ControllersEspacios, ControllersUsuarios};
