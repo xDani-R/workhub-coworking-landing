@@ -1,21 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const Controllers = require('../controllers/controllers');
+const { ControllersReservas, ControllersEspacios, ControllersUsuarios } = require('../controllers/controllers');
 const validateReserva = require('../Middlewares/validateReserva');
 
 // ── GET /espacios/ ───────────────────────────────────────
-router.get('/espacios', Controllers.getEspacios);
+router.get('/espacios', ControllersEspacios.getEspacios);
+
+// ── POST /espacios/ ───────────────────────────────────────
+router.post('/espacios', ControllersEspacios.crearEspacios);
 
 // ── POST /reservas ─────────────────────────────────────────────
-router.post('/reservas', validateReserva, Controllers.createReserva);
+router.post('/reservas', validateReserva, ControllersReservas.createReserva);
 
 // ── PUT /reservas/:id ──────────────────────────────────────────
-router.put('/reservas/:id', validateReserva, Controllers.updateReserva);
+router.put('/reservas/:id', validateReserva, ControllersReservas.updateReserva);
 
 // ── DELETE /reservas/:id ───────────────────────────────────────
-router.delete('/reservas/:id', Controllers.deleteReserva);
+router.delete('/reservas/:id', ControllersReservas.deleteReserva);
 
 // ── GET /reservas/ ───────────────────────────────────────
-router.get('/reservas', Controllers.getReservas);
+router.get('/reservas', ControllersReservas.getReservas);
 
 module.exports = router;
