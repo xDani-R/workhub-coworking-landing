@@ -6,6 +6,13 @@ const ControllersReservas = {
 
     // ── POST /reservas ────────────────────────────────────────────────────────
     createReserva: async (req, res) => {
+        try {
+            const reserva = new Reserva(req.body);
+            const reservaCreada = reserva.save();   
+            res.status(201).json({mensaje:'Reserva creada exitosamente', reserva: reserva});
+        } catch (error) {
+            res.status(500).json({mensaje:'Error al crear una reserva', error:error.message});
+        }
     },
 
     // ── PUT /reservas/:id ─────────────────────────────────────────────────────
