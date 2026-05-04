@@ -33,7 +33,8 @@ const ControllersReservas = {
         try {
             const { id } = req.params;
 
-            const deleted = await Models.deleteReservation(id);
+            // Use Mongoose to find and delete by ID
+            const deleted = await Reserva.findByIdAndDelete(id);
 
             if (!deleted) {
                 return res.status(404).json({
