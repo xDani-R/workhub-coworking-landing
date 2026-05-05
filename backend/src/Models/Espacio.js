@@ -13,4 +13,5 @@ const espacioSchema = new mongoose.Schema({
     salas:     [salaSchema]
 });
 
-module.exports = mongoose.model('Espacio', espacioSchema);
+const Espacio = mongoose.model('Espacio', espacioSchema);
+module.exports = Espacio;

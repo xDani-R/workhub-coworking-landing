@@ -3,7 +3,7 @@ import Layout from '../src/components/Layout/Layout';
 import { Home } from '../pages/Home';
 import About from '../pages/About';
 import Reservas from '../pages/Reservas/Reservas';
-import Comunidad from '../pages/Comunidad/Comunidad';   // 👈 Ruta específica
+import Comunidad from '../pages/Comunidad';   // 👈 Ruta específica
 // import Espacios from '../pages/Espacios/Espacios';     // 👈 Ruta específica
 import Beneficios from '../pages/Beneficios/Beneficios';
 
