@@ -68,6 +68,9 @@
                     <a className="nav-link" href="/comunidad">Comunidad</a>
                     </li>
                     <li className="nav-item">
+                    <a className="nav-link" href="/nosotros">Nosotros</a>
+                    </li>
+                    <li className="nav-item">
                     <a className="nav-link" href="/beneficios">Beneficios</a>
                     </li>
                     <li className="nav-item">
