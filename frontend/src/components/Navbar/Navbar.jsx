@@ -1,6 +1,6 @@
     import { useState, useEffect } from 'react';
     import styles from './Navbar.module.css';
-    import logo from '../../assets/img/logo_coworkhub.png';
+    import logo from '../../assets/img/logo_coworkhub_purple.png';
 
     const Navbar = () => {
     const [visible, setVisible] = useState(true);
@@ -38,7 +38,10 @@
                 {/* Logo / Brand */}
                 <a className={`navbar-brand d-flex align-items-center gap-2 ${styles.tituloNavbar}`} href="/">
                 <img src={logo} height="32" alt="WorkHub logo" />
-                WorkHub - Laboratorio creativo
+                <span className={styles.tituloNavbar}>
+                    WorkHub
+                    <span className="d-none d-md-inline"> - Laboratorio creativo</span>
+                </span>
                 </a>
 
                 {/* Botón hamburguesa (móvil) */}
@@ -59,7 +62,7 @@
                 <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-2 ${styles.listaNave}`}>
 
                     <li className="nav-item">
-                    <a className="nav-link" href="/#aboutus-section">Quiénes Somos</a>
+                    <a className="nav-link" href="/#aboutus-section">Explora el espacio</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="/comunidad">Comunidad</a>
