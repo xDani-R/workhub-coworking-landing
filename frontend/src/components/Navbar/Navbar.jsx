@@ -60,15 +60,14 @@
                 {/* Links de navegación */}
                 <nav className="collapse navbar-collapse" id="navbarPrincipal">
                 <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-2 ${styles.listaNave}`}>
-
                     <li className="nav-item">
-                    <a className="nav-link" href="/espacios">Explora el espacio</a>
+                    <a className="nav-link" href="/nosotros">Quiénes Somos</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="/comunidad">Comunidad</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/nosotros">Nosotros</a>
+                    <a className="nav-link" href="/espacios">Espacios</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="/beneficios">Beneficios</a>
