@@ -1,0 +1,261 @@
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Bebas+Neue&family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Rye&display=swap');
+
+    /* ================================
+    SECCIÓN CARRUSEL
+    ================================ */
+
+    .carrousel {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+    /* ── Contenedor de slides ── */
+    .carrouselElementsDiv {
+    display: flex;
+    z-index: 0;
+    background: linear-gradient(rgba(252, 252, 252, 0.2), rgba(0, 0, 0, 0.2));
+    width: 100%;
+    height: 100vh;
+    position: static;
+    }
+
+    /* ── Slide individual ── */
+    .carrouselItem {
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.4s ease-in-out;
+    }
+
+    .carrouselItem::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* backdrop-filter: blur(4px); */
+    background: linear-gradient(rgba(255, 255, 255, 0.055), rgba(0, 0, 0, 0.658));
+    }
+
+    .carrouselItem.active {
+    display: flex;
+    opacity: 1;
+    position: absolute;
+    }
+
+    /* ── Imágenes de fondo por slide ── */
+    .carrouselItemOne {
+    background-image: url('../../../assets/img/hero1.jpg');
+    }
+
+    .carrouselItemTwo {
+    background-image: url('../../../assets/img/hero2.jpg');
+    }
+
+    .carrouselItemThree {
+    background-image: url('../../../assets/img/hero3.jpg');
+    }
+
+    /* ── Contenido del slide ── */
+    .carrouselBody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    gap: 2px;
+    margin-bottom: 4em;
+    }
+
+    .carrouselBody p {
+    position: relative;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-weight: bolder;
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.454);
+    font-size: 1.3em;
+    }
+
+    .carrouselBody h1 {
+    position: relative;
+    font-family: "Inter", sans-serif;
+    font-size: 3em;
+    color: #ffffff;
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.454);
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 1em;
+    }
+
+    /* Efecto highlight */
+    .carrouselBody h1 span {
+        background: rgba(115, 102, 255, 0.341);
+        padding: 0.2em 0.5em;
+        border-radius: 2px;
+        box-shadow: 5px 0 0 #7366FE;
+    }
+
+    .carrouselBody button {
+    position: sticky;
+    background-color: #C59BD7;
+    padding: 15px;
+    font-size: 15px;
+    border: solid 2px #C59BD7;
+    border-radius: 12px;
+    font-weight: bolder;
+    color: white;
+    align-self: center;
+    z-index: 1000;
+    cursor: pointer;
+    transition: background-color 0.2s, border 0.2s;
+    }
+
+    .carrouselBody button:hover {
+    border: solid 2px rgba(255, 255, 255, 0);
+    background-color: #805591;
+    color: #ffffff;
+    }
+
+    /* ================================
+    CONTROLES
+    ================================ */
+
+    .carrouselControllers {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    pointer-events: none; /* evita bloquear clicks en los slides */
+    }
+
+    /* ── Prev / Next ── */
+    .nextButtonsDiv {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 25%;
+    pointer-events: all;
+    }
+
+    .nextButton {
+    margin: 0px 20px;
+    width: 70px;
+    height: 70px;
+    font-size: 60px;
+    border-radius: 50%;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(240, 248, 255, 0);
+    cursor: pointer;
+    transition: 0.8s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    }
+
+    .nextButton:hover {
+    color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(240, 248, 255, 0.6);
+    box-shadow: 1px 1px 20px 1px white;
+    scale: 1.2;
+    }
+
+    .nextButton:active {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: white 2px solid;
+    box-shadow: 1px 1px 20px 1px white;
+    }
+
+    /* ── Bullets ── */
+    .selectButtonsDiv {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: all;
+    z-index: 100;
+    }
+
+    .circleButton {
+    margin: 0 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: scale 0.2s, background-color 0.2s;
+    z-index: 100;
+    }
+
+    .circleButton.active {
+    background-color: white;
+    scale: 1.5;
+    }
+
+    .circleButton:hover {
+    scale: 2;
+    }
+
+    /* ================================
+    RESPONSIVE
+    ================================ */
+
+    @media (max-width: 850px) {
+
+    .carrouselBody h1 {
+        font-size: 2.6rem;
+    }
+
+    .carrouselControllers {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        justify-content: flex-end;
+    }
+
+    .nextButtonsDiv {
+        width: 100%;
+        height: 95vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    .nextButton {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .selectButtonsDiv {
+        display: none;
+    }
+    }

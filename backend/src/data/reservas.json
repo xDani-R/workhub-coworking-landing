@@ -1,0 +1,23 @@
+{
+  "reservas": [
+    {
+      "id": 1776845508790,
+      "nombre": "Dani",
+      "email": "dani@hotmail.com",
+      "sede": "La-reina",
+      "telefono": "912345678",
+      "fecha": "17-05-2026",
+      "hora": "10:00",
+      "mensaje": ""
+    },
+    {
+      "id": 1777051912442,
+      "nombre": "Nacho",
+      "telefono": "912345678",
+      "sede": "La-reina",
+      "fecha": "17-05-2026",
+      "hora": "10:00",
+      "mensaje": "aaa"
+    }
+  ]
+}

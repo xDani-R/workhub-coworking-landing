@@ -1,0 +1,104 @@
+    /* ================================
+    SEDES
+    ================================ */
+    .sedes {
+      margin-top: 70px;
+     padding: 0 10% 60px 10%;
+    }
+
+    .container {
+     max-width: 100%;
+     margin: 0 auto;
+     padding: 0;
+    }
+/*
+    .sedes {
+    margin-top: 70px;
+    padding-bottom: 60px;
+    }
+
+    .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    }
+*/
+    /* ── Título ── */
+    .interTitle {
+    font-weight: 700;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-align: left;
+    color: #333333;
+    }
+/*
+    .wavySedes {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgb(255, 96, 47);
+    text-decoration-skip-ink: none;
+    }
+
+    /* ── Layout ── */
+    .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    }
+
+    .colMd4 {
+    flex: 1 1 calc(33.333% - 1rem);
+    }
+
+    /* ── Cards ── */
+    .card {
+    background-color:#f8f7f4;
+    color: #555;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    }
+
+    .cardBody {
+    padding: 1rem;
+    }
+
+    .cardTitle {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    }
+
+    .cardText {
+    font-weight: 400;
+    font-size: 1rem;
+    }
+
+    .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ================================
+    RESPONSIVE
+    ================================ */
+
+    @media (max-width: 768px) {
+    .interTitle {
+        text-align: center;
+    }
+
+    .colMd4 {
+        flex: 1 1 100%;
+    }
+
+    .row {
+        justify-content: center;
+    }
+    }
