@@ -1,7 +1,7 @@
 import styles from './QueHacer.module.css';
-import CoworkingIcon from '../../../assets/icons/coworking3.png';
-import MeetingIcon from '../../../assets/icons/meeting3.png';
-import WorkshopIcon from '../../../assets/icons/workshop3.png';
+import CoworkingIcon from '../../../assets/icons/coworking3.svg';
+import MeetingIcon from '../../../assets/icons/meeting3.svg';
+import WorkshopIcon from '../../../assets/icons/workshop3.svg';
 
 const QueHacer = () => {
   const activities = [
@@ -24,18 +24,30 @@ const QueHacer = () => {
 
   return (
     <section className={styles.container}>
-      <h2 className={styles.mainTitle}>¿Qué puedes hacer aquí?</h2>
-      
-      <div className={styles.cardsGrid}>
-        {activities.map((item, index) => (
-          <div key={index} className={styles.card}>
-            <div className={styles.iconPlaceholder}>
-              {item.icon ? <img src={item.icon} alt="" /> : <div className={styles.square} />}
+      {/* Top Section: Cards */}
+      <div className={styles.topSection}>
+        <h2 className={styles.mainTitle}>¿Qué puedes hacer aquí?</h2>
+        <div className={styles.cardsGrid}>
+          {activities.map((item, index) => (
+            <div key={index} className={styles.card}>
+              <div className={styles.iconPlaceholder}>
+                {item.icon ? (
+                  <img src={item.icon} alt="" />
+                ) : (
+                  <div className={styles.square} />
+                )}
+              </div>
+              <h3 className={styles.cardTitle}>{item.title}</h3>
+              <p className={styles.cardDescription}>{item.description}</p>
             </div>
-            <h3 className={styles.cardTitle}>{item.title}</h3>
-            <p className={styles.cardDescription}>{item.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom Section: CTA */}
+      <div className={styles.bottomSection}>
+        <h3 className={styles.ctaTitle}>Encuentra tu lugar dentro de la comunidad</h3>
+        <button className={styles.ctaButton}>Ver todas las sedes</button>
       </div>
     </section>
   );

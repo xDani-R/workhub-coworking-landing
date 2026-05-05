@@ -10,10 +10,9 @@ export const Home = () => {
     return (
         <>
         <Hero/>
-        {/* <WorkHubTeam/> */}
-        <QueHacer/>
         <Gallery/>
-        <Sedes/>
+        <Sedes/>  
+        <QueHacer/>
         </>
     )
 }
