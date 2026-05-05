@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '../src/components/Layout/Layout';
-import {Home} from '../pages/Home';
+import { Home } from '../pages/Home';
 import About from '../pages/About';
 import Reservas from '../pages/Reservas/Reservas';
-import Comunidad from '../pages/Comunidad';   // <-- Importa
+import Comunidad from '../pages/Comunidad/Comunidad';   // 👈 Ruta específica
+import Espacios from '../pages/Espacios/Espacios';     // 👈 Ruta específica
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/nosotros" element={<About />} />
           <Route path="/reservas" element={<Reservas />} />
-          <Route path="/comunidad" element={<Comunidad />} />  {/* Nueva ruta */}
+          <Route path="/comunidad" element={<Comunidad />} />
+          <Route path="/espacios" element={<Espacios />} />
         </Route>
       </Routes>
     </BrowserRouter>
