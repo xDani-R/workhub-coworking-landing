@@ -1,6 +1,8 @@
-const Models = require('../models/models');
 const Reserva = require('../Models/Reserva');
 const Espacio = require('../Models/Espacio');
+const Usuario = require('../Models/Usuario');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const ControllersReservas = {
 
@@ -8,7 +10,7 @@ const ControllersReservas = {
     createReserva: async (req, res) => {
         try {
             const reserva = new Reserva(req.body);
-            const reservaCreada = reserva.save();   
+            const reservaCreada = await reserva.save();   
             res.status(201).json({mensaje:'Reserva creada exitosamente', reserva: reserva});
         } catch (error) {
             res.status(500).json({mensaje:'Error al crear una reserva', error:error.message});
@@ -61,7 +63,9 @@ const ControllersReservas = {
     // ── GET /reservas/ ──────────────────────────────────────────────────
     getReservas: async (req, res) => {
         try {
-            const data = await Reserva.find();
+            const data = await Reserva.find()
+            .populate('usuarios', 'nombre correo')
+            .populate('espacios', 'nombre direccion salas');
             // Respondemos con el código 200 y los datos en JSON
             res.status(201).json(data); 
         } catch (error) {
@@ -72,10 +76,13 @@ const ControllersReservas = {
 
 const ControllersEspacios = {
     // ── GET /espacios/ ──────────────────────────────────────────────────
-    getEspacios: (req, res) => {
-        const data = Models.getEspacios();
-        // Respondemos con el código 200 y los datos en JSON
-        res.status(200).json(data); 
+    getEspacios: async (req, res) => {
+    try {
+        const data = await Espacio.find();
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({mensaje:'Error al intentar listar los espacios', error: error.message})
+    }
     },
 
     crearEspacios: async (req, res) => {
@@ -84,7 +91,7 @@ const ControllersEspacios = {
             const datos = Array.isArray(req.body) ? req.body : req.body.espacios;
             
             const espacios = await Espacio.insertMany(datos);
-            res.status(201).json(espacios);
+            res.status(200).json(espacios);
         } catch (error) {
             res.status(400).json({ error: error.message });
         }
@@ -92,7 +99,99 @@ const ControllersEspacios = {
 };
 
 const ControllersUsuarios = {
+    registrarUsuario : async (req, res) => {
+        const { rut, nombre, correo, contrasena } = req.body;
+    
+        try {
+            // 1. Validar que lleguen todos los campos
+            if (!rut || !nombre || !correo || !contrasena) {
+                return res.status(400).json({ mensaje: 'Todos los campos son obligatorios' });
+            }
+    
+            // 2. Verificar que el correo no esté ya registrado
+            const usuarioExistente = await Usuario.findOne({ correo });
+            if (usuarioExistente) {
+                return res.status(400).json({ mensaje: 'El correo ya está registrado' });
+            }
+    
+            // 3. Hashear la contraseña antes de guardar
+            const salt = await bcrypt.genSalt(10);
+            const contrasenaHasheada = await bcrypt.hash(contrasena, salt);
+    
+            // 4. Crear y guardar el usuario
+            const nuevoUsuario = new Usuario({
+                rut,
+                nombre,
+                correo,
+                contrasena: contrasenaHasheada,
+            });
+    
+            await nuevoUsuario.save();
+    
+            // 5. Responder sin exponer la contraseña
+            res.status(201).json({
+                mensaje: 'Usuario registrado exitosamente',
+                usuario: {
+                    id: nuevoUsuario._id,
+                    rut: nuevoUsuario.rut,
+                    nombre: nuevoUsuario.nombre,
+                    correo: nuevoUsuario.correo,
+                },
+            });
+    
+        } catch (error) {
+            console.error('Error al registrar usuario:', error);
+            res.status(500).json({ mensaje: 'Error interno del servidor' });
+        }
+    },
 
+    loginUsuario : async (req, res) => {
+        const { correo, contrasena } = req.body;
+    
+        try {
+            // 1. Validar que lleguen los campos
+            if (!correo || !contrasena) {
+                return res.status(400).json({ mensaje: 'Correo y contraseña son obligatorios' });
+            }
+    
+            // 2. Buscar el usuario por correo
+            const usuario = await Usuario.findOne({ correo });
+            if (!usuario) {
+                return res.status(401).json({ mensaje: 'Credenciales inválidas' });
+            }
+    
+            // 3. Comparar la contraseña con el hash guardado
+            const contrasenaValida = await bcrypt.compare(contrasena, usuario.contrasena);
+            if (!contrasenaValida) {
+                return res.status(401).json({ mensaje: 'Credenciales inválidas' });
+            }
+    
+            // 4. Generar el token JWT
+            const payload = {
+                id: usuario._id,
+                correo: usuario.correo,
+                nombre: usuario.nombre,
+            };
+    
+            const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '8h' });
+    
+            // 5. Responder con el token
+            res.status(200).json({
+                mensaje: 'Login exitoso',
+                token,
+                usuario: {
+                    id: usuario._id,
+                    rut: usuario.rut,
+                    nombre: usuario.nombre,
+                    correo: usuario.correo,
+                },
+            });
+    
+        } catch (error) {
+            console.error('Error al iniciar sesión:', error);
+            res.status(500).json({ mensaje: 'Error interno del servidor' });
+        }
+    }
 };
 
 module.exports = {ControllersReservas, ControllersEspacios, ControllersUsuarios};

@@ -14,7 +14,7 @@
 
     /* ── Contenido del modal ── */
     .modalContenido {
-    background-color: #5A7290;
+    background-color: #EFE2FF;
     border-radius: 16px;
     border: none;
     width: 100%;
@@ -35,7 +35,7 @@
     padding: 20px 24px 8px 24px;
     position: sticky;
     top: 0;
-    background-color: #5A7290;
+    background-color: #EFE2FF;
     z-index: 1;
     border-radius: 16px 16px 0 0;
     }

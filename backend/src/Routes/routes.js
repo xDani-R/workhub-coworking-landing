@@ -21,4 +21,11 @@ router.delete('/reservas/:id', ControllersReservas.deleteReserva);
 // ── GET /reservas/ ───────────────────────────────────────
 router.get('/reservas', ControllersReservas.getReservas);
 
+// ── POST /usuarios/registrar ───────────────────────────────────────
+router.post('/usuarios/registrar', ControllersUsuarios.registrarUsuario);
+
+// ── POST /usuarios/login ───────────────────────────────────────
+router.post('/usuarios/login', ControllersUsuarios.loginUsuario);
+
+
 module.exports = router;

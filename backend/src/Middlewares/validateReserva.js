@@ -1,9 +1,9 @@
 const validateReserva = (req, res, next) => {
-    const { fecha, hora, mensaje, usuario, espacio, sala } = req.body;
-    if (!fecha || !hora || !mensaje || !usuario || !espacio || !sala) {
+    const { fecha, hora, mensaje, usuarios, espacios, salas } = req.body;
+    if (!fecha || !hora || !mensaje || !usuarios || !espacios || !salas) {
         return res.status(400).json({
             success: false,
-            message: 'Faltan campos obligatorios: fecha, hora, mensaje, usuario, espacio, sala'
+            message: 'Faltan campos obligatorios: fecha, hora, mensaje, usuarios, espacios, sala'
         });
     }
 
