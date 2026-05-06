@@ -1,20 +1,26 @@
 const express = require('express')
 const cors = require('cors')
-
-// 1. Importamos las rutas
 const routes = require('./src/Routes/routes')
+const errorHandler = require('./src/Middlewares/errorHandler');
+const logger = require('./src/Middlewares/logger');
+require('dotenv').config();
+require('./src/database/connection');
 
 const app = express()
 const PORT = 3001
 
-// 2. Middleware para parsear JSON
-app.use(cors())
-app.use(express.json()); //Esto permite que el servidor entienda las solicitudes con cuerpo JSON
+app.use(cors());        
+app.use(express.json());
+app.use(logger);
 
-// 3. Instanciar las rutas (Endpoints)
-// Esto hace que todas las rutas empiecen con /api, por ejemplo: POST http://localhost:3001/api/reservas
-app.use('/api', routes)
 
+//Instanciación de rutas: Vinculas los endpoints definidos en Routes.js
+app.use('/', routes);
+
+
+app.use(errorHandler); 
+
+//Ejecución del servidor 
 app.listen(PORT, () => {
-console.log(`Servidor corriendo en http://localhost:${PORT}`)
-})
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});

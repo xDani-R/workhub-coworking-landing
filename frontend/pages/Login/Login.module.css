@@ -1,0 +1,262 @@
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* ================================
+    PAGE LAYOUT
+    ================================ */
+
+    .page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Inter', sans-serif;
+    }
+
+    /* ================================
+    LEFT PANEL
+    ================================ */
+
+    .leftPanel {
+    background-color: #805591;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 52px;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .leftPanel::before {
+    content: '';
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: rgba(197, 155, 215, 0.18);
+    bottom: -80px;
+    left: -80px;
+    }
+
+    .leftPanel::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    top: 60px;
+    right: -60px;
+    }
+
+    /* ── Logo ── */
+
+    .logoLockup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    }
+
+    .logoIcon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    }
+
+    .logoText {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    }
+
+    /* ── Copy ── */
+
+    .leftCopy {
+    position: relative;
+    z-index: 1;
+    }
+
+    .leftHeading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    }
+
+    .leftSubtext {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+    max-width: 280px;
+    }
+
+    /* ── Footer ── */
+
+    .leftFooter {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    position: relative;
+    z-index: 1;
+    }
+
+    /* ================================
+    RIGHT PANEL
+    ================================ */
+
+    .rightPanel {
+    background-color: #f8f7f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 52px;
+    }
+
+    .formBox {
+    width: 100%;
+    max-width: 360px;
+    }
+
+    .formHeading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+    }
+
+    .formSub {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 36px;
+    }
+
+    /* ================================
+    FORM ELEMENTS
+    ================================ */
+
+    .fieldGroup {
+    margin-bottom: 18px;
+    }
+
+    .label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    }
+
+    .input {
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    border: 1.5px solid #e8e4e0;
+    border-radius: 10px;
+    color: #1a1a1a;
+    outline: none;
+    transition: border-color 0.18s, box-shadow 0.18s;
+    box-sizing: border-box;
+    }
+
+    .input::placeholder {
+    color: #bbb;
+    }
+
+    .input:focus {
+    border-color: #C59BD7;
+    box-shadow: 0 0 0 4px rgba(197, 155, 215, 0.15);
+    }
+
+    .rowBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    }
+
+    .rowBetween .label {
+    margin-bottom: 0;
+    }
+
+    .linkForgot {
+    font-size: 12px;
+    color: #805591;
+    text-decoration: none;
+    font-weight: 500;
+    }
+
+    .linkForgot:hover {
+    text-decoration: underline;
+    }
+
+    /* ================================
+    BUTTON
+    ================================ */
+
+    .btnPrimary {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    background-color: #805591;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: background-color 0.18s, transform 0.1s;
+    }
+
+    .btnPrimary:hover {
+    background-color: #6e4880;
+    }
+
+    .btnPrimary:active {
+    transform: scale(0.98);
+    }
+
+    /* ================================
+    REGISTER LINK
+    ================================ */
+
+    .registerLine {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: 24px;
+    }
+
+    .registerLink {
+    color: #805591;
+    font-weight: 600;
+    text-decoration: none;
+    }
+
+    .registerLink:hover {
+    text-decoration: underline;
+    }
+
+    /* ================================
+    RESPONSIVE
+    ================================ */
+
+    @media (max-width: 768px) {
+    .page {
+        grid-template-columns: 1fr;
+    }
+
+    .leftPanel {
+        display: none;
+    }
+
+    .rightPanel {
+        padding: 40px 28px;
+        min-height: 100vh;
+    }
+    }

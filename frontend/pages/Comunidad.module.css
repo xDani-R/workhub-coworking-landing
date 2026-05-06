@@ -1,0 +1,283 @@
+/* ============================================
+   VARIABLES POR OBJETO (edita aquí cada color)
+   ============================================ */
+.comunidad {
+  /* Colores generales */
+  --color-background: white;      /* Fondo general */
+  --color-text-dark: #2c2c2c;
+  --color-text-light: white;
+
+  /* Hero */
+  --hero-overlay: rgba(0,0,0,0.4);
+  --hero-button-bg: #C59BD7;
+  --hero-button-hover: #b97bd4;
+  --hero-dot-active: #C06C50;
+  --hero-highlight-bg: rgba(115, 102, 254, 0.3); /* Color #7366FE con transparencia */
+
+  /* Títulos principales (Comunidad, etc.) */
+  --title-color: #2F2F30;
+
+  /* Tarjetas de contadores (+60, +7) */
+  --counter-card-bg-1: #DEF093;      /* fondo +60 */
+  --counter-card-bg-2: #C5D1FF;      /* fondo +7 */
+  --counter-number-color: #000000;   
+  --counter-title-color: #000000;    
+
+  /* Tarjeta morada del equipo */
+  --team-hero-card-bg: #BBB1EF;       
+  --team-hero-title-color: #FFFFFF;   
+  --team-hero-text-color: #FFFFFF;    
+
+  /* Tarjetas de habilidades */
+  --team-card-bg-1: #F5F8FA;            
+  --team-card-bg-2: #F9F6F1;            
+  --team-card-bg-3: #FAF4F4;            
+  --team-card-bg-4: #F3F6F8;            
+  --team-card-title-color: #305C7D;
+  --team-card-text-color: #2c2c2c;
+
+  /* Círculos de habilidades */
+  --circle-bg-1: #E1F0B7;             /* Generar Redes */
+  --circle-bg-2: #FCE5A1;             /* Fomentar creatividad */
+  --circle-bg-3: #F4BBD5;             /* Compartir Habilidades */
+  --circle-bg-4: #CBE7DF;             /* Construir Comunidad */
+
+  /* Sección "Un espacio para crear y compartir" */
+  --create-share-title-color: #333333;
+  --create-share-text-color: #2c2c2c;
+  --create-share-bg: white;
+
+  /* Tarjeta final "Un espacio para experimentar" */
+  --experiment-card-bg: #EFE2FF;      
+  --experiment-text-color: #333333;
+  --rotating-word-color: #9B379D;
+  --rotating-word-bg: transparent;
+
+  /* ===== NUEVAS VARIABLES PARA EL FOOTER ===== */
+  --footer-bg: #2F2F30;        /* Fondo del footer (cámbialo aquí) */
+  --footer-text: #FFFFFF;      /* Color del texto del footer */
+  --footer-link-hover: #C59BD7; /* Color de los enlaces al pasar el mouse */
+
+  /* Espaciados y bordes */
+  --section-padding: 4rem 0;
+  --container-max-width: 1200px;
+  --gap-large: 2rem;
+  --gap-medium: 1rem;
+  --border-radius: 12px;
+  --transition-speed: 0.2s;
+
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ----- Hero con carrusel ----- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.carouselBackground { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.carouselSlideBg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1s ease-in-out; z-index: 1;
+}
+.carouselSlideBg.activeBg { opacity: 1; z-index: 2; }
+.heroCarouselBtn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background-color: var(--hero-overlay); color: white; border: none;
+  font-size: 2rem; cursor: pointer; padding: 0.2rem 0.8rem;
+  border-radius: 50%; z-index: 20; transition: background var(--transition-speed);
+}
+.heroCarouselBtn:hover { background-color: rgba(0,0,0,0.7); }
+.heroPrev { left: 20px; }
+.heroNext { right: 20px; }
+.heroDots { position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; z-index: 20; }
+.heroDot {
+  display: inline-block; width: 12px; height: 12px;
+  background-color: rgba(255,255,255,0.5); border-radius: 50%;
+  margin: 0 5px; cursor: pointer; transition: background var(--transition-speed);
+}
+.heroActiveDot { background-color: var(--hero-dot-active); }
+.heroContent {
+  position: relative; z-index: 10; display: flex; align-items: center;
+  justify-content: center; text-align: center; height: 100%;
+  background-color: var(--hero-overlay);
+}
+.heroContent .container {
+  max-width: 800px;
+  margin-top: 50vh;   /* prueba 10vh, 15vh, etc. */
+}
+.heroSub { font-size: 20px; font-weight: 500; letter-spacing: 1px; margin-bottom: 1rem; color: var(--color-text-light); }
+
+.heroContent h1 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: var(--color-text-light);
+  text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+.highlight {
+  background-color: var(--hero-highlight-bg);
+  padding: 4px 16px;
+  display: inline-block;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+.heroContent h1 .highlight:first-child {
+  margin-bottom: 0.75rem;
+}
+
+.heroButton {
+  background-color: var(--hero-button-bg); border: none; border-radius: 62.51px;
+  padding: 15.96px 42.56px; font-size: 21.28px; font-weight: 600;
+  color: white; cursor: pointer; transition: background var(--transition-speed);
+}
+.heroButton:hover { background-color: var(--hero-button-hover); }
+
+/* ----- Sección Comunidad (contadores + imágenes) ----- */
+.comunidadSection { padding: var(--section-padding); background-color: var(--color-background); }
+.comunidadTitle { font-size: 48px; font-weight: 700; text-align: center; color: var(--title-color); margin-bottom: var(--gap-large); }
+.comunidadLayout { display: flex; flex-direction: column; gap: var(--gap-large); }
+.layoutRow { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-large); align-items: stretch; }
+.counterCard {
+  background-color: var(--counter-card-bg-1); border-radius: var(--border-radius);
+  padding: 2rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.layoutRow:last-child .counterCard { background-color: var(--counter-card-bg-2); }
+.counterNumber { font-size: 64px; font-weight: 600; color: var(--counter-number-color); line-height: 1; margin-bottom: 0.5rem; }
+.counterCard h3 { font-size: 24px; font-weight: 600; margin: 0.5rem 0; color: var(--counter-title-color); }
+.counterCard p { font-size: 16px; font-weight: 300; line-height: 1.4; color: var(--color-text-dark); }
+.imagesPair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-medium); height: 100%; }
+.imagesPair img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform var(--transition-speed);
+}
+.imagesPair img:hover { transform: scale(1.02); }
+
+/* ----- Tarjeta morada del equipo ----- */
+.teamHeroSection { 
+  padding: 0 0 4rem 0;   
+  background-color: var(--color-background); 
+}
+.teamHeroCard {
+  background-color: var(--team-hero-card-bg);
+  border-radius: var(--border-radius);
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.teamHeroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-large);
+  align-items: center;
+}
+.teamHeroTitle { font-size: 48px; font-weight: 700; line-height: 1.2; color: var(--team-hero-title-color); margin: 0; }
+.teamHeroText { font-size: 20px; font-weight: 400; line-height: 1.4; color: var(--team-hero-text-color); margin: 0; }
+
+/* ----- Cuatro tarjetas de habilidades ----- */
+.teamCardsSection { padding: 0 0 var(--section-padding); background-color: var(--color-background); }
+.teamGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-large); }
+.teamCard {
+  border-radius: var(--border-radius); padding: 2rem;
+  display: flex; flex-direction: column; gap: var(--gap-medium);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.teamCard:nth-child(1) { background-color: var(--team-card-bg-1); }
+.teamCard:nth-child(2) { background-color: var(--team-card-bg-2); }
+.teamCard:nth-child(3) { background-color: var(--team-card-bg-3); }
+.teamCard:nth-child(4) { background-color: var(--team-card-bg-4); }
+.cardIcon {
+  width: 79px; height: 79px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+}
+.teamCard:nth-child(1) .cardIcon { background-color: var(--circle-bg-1); }
+.teamCard:nth-child(2) .cardIcon { background-color: var(--circle-bg-2); }
+.teamCard:nth-child(3) .cardIcon { background-color: var(--circle-bg-3); }
+.teamCard:nth-child(4) .cardIcon { background-color: var(--circle-bg-4); }
+.cardIcon img { width: 70%; height: 70%; object-fit: contain; display: block; }
+.teamCard h3 { font-size: 24px; font-weight: 600; margin: 0; color: var(--team-card-title-color); }
+.teamCard p { font-size: 16px; font-weight: 300; line-height: 1.4; margin: 0; color: var(--team-card-text-color); }
+
+/* ----- Sección "Un espacio para crear y compartir" ----- */
+.createShareSection { padding: var(--section-padding); background-color: var(--create-share-bg); }
+.createShareGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.createShareText h2 { font-size: 48px; font-weight: 700; color: var(--create-share-title-color); margin-bottom: 1.5rem; }
+.createShareText p { font-size: 18px; line-height: 1.5; color: var(--create-share-text-color); margin-bottom: 1rem; }
+.createShareImages { display: flex; flex-direction: column; gap: 1.5rem; }
+.createShareImages img {
+  width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover;
+  border-radius: var(--border-radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform var(--transition-speed);
+}
+.createShareImages img:hover { transform: scale(1.02); }
+
+/* ----- Tarjeta final con carrusel de palabras ----- */
+.experimentCta { padding: 2rem 0 4rem 0; background-color: var(--color-background); }
+.experimentCard {
+  background-color: var(--experiment-card-bg); border-radius: var(--border-radius);
+  padding: 6rem 2rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.experimentCard h2 { font-size: 48px; font-weight: 700; color: var(--experiment-text-color); margin: 0; }
+.rotatingWord {
+  display: inline-block; min-width: 200px; text-align: center;
+  color: var(--rotating-word-color); background-color: var(--rotating-word-bg);
+  padding: 0 0.2rem; border-radius: var(--border-radius);
+  animation: fadeWord 0.5s ease-in-out;
+}
+@keyframes fadeWord {
+  0% { opacity: 0; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== ESTILOS PARA EL FOOTER (si está dentro de esta página) ===== */
+/* NOTA: Normalmente el footer está en Layout, no dentro de Comunidad.
+   Si quieres que estos colores afecten al footer global, debes copiar estas variables
+   al archivo CSS del footer (por ejemplo Footer.module.css) y usar root variables. 
+   Aquí lo dejo como referencia por si el footer se incluye dentro del main. */
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+.footer a {
+  color: var(--footer-text);
+  transition: color var(--transition-speed);
+}
+.footer a:hover {
+  color: var(--footer-link-hover);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 992px) {
+  .heroContent h1 { font-size: 2rem; }
+  .teamHeroTitle, .teamHeroText, .createShareText h2, .experimentCard h2,
+  .comunidadTitle { font-size: 2rem; line-height: 1.2; }
+  .teamHeroGrid { grid-template-columns: 1fr; gap: 1rem; text-align: center; }
+  .createShareGrid { grid-template-columns: 1fr; gap: var(--gap-large); }
+  .rotatingWord { min-width: 150px; }
+  .highlight { padding: 0.1rem 0.8rem; }
+}
+@media (max-width: 768px) {
+  .layoutRow { grid-template-columns: 1fr; gap: var(--gap-medium); }
+  .imagesPair { grid-template-columns: 1fr; }
+  .teamGrid { grid-template-columns: 1fr; }
+  .heroCarouselBtn { font-size: 1.5rem; padding: 0.2rem 0.6rem; }
+  .heroPrev { left: 10px; }
+  .heroNext { right: 10px; }
+  .experimentCard { padding: 2rem 1rem; }
+  .rotatingWord { min-width: 120px; }
+  .createShareImages { gap: var(--gap-medium); }
+  .teamHeroCard { padding: 2rem 1rem; }
+}

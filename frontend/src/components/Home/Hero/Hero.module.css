@@ -46,7 +46,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(4px);
+    /* backdrop-filter: blur(4px); */
     background: linear-gradient(rgba(255, 255, 255, 0.055), rgba(0, 0, 0, 0.658));
     }
 
@@ -75,10 +75,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     font-family: "Inter", sans-serif;
     gap: 2px;
+    margin-bottom: 4em;
     }
 
     .carrouselBody p {
@@ -86,23 +87,35 @@
     font-family: "Inter", sans-serif;
     color: #ffffff;
     font-weight: bolder;
-    text-shadow: 0px 0px 7px black, 0px 0px 14px black;
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.454);
+    font-size: 1.3em;
     }
 
     .carrouselBody h1 {
     position: relative;
     font-family: "Inter", sans-serif;
-    font-size: 62px;
+    font-size: 3em;
     color: #ffffff;
-    text-shadow: 0px 0px 6px black, 0px 0px 14px black;
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.454);
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 1em;
+    }
+
+    /* Efecto highlight */
+    .carrouselBody h1 span {
+        background: rgba(115, 102, 255, 0.341);
+        padding: 0.2em 0.5em;
+        border-radius: 2px;
+        box-shadow: 5px 0 0 #7366FE;
     }
 
     .carrouselBody button {
     position: sticky;
-    background-color: #5B2D6E;
+    background-color: #C59BD7;
     padding: 15px;
     font-size: 15px;
-    border: solid 2px #5B2D6E;
+    border: solid 2px #C59BD7;
     border-radius: 12px;
     font-weight: bolder;
     color: white;
@@ -114,7 +127,7 @@
 
     .carrouselBody button:hover {
     border: solid 2px rgba(255, 255, 255, 0);
-    background-color: #3b1d48;
+    background-color: #805591;
     color: #ffffff;
     }
 
@@ -192,8 +205,8 @@
 
     .circleButton {
     margin: 0 15px;
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 10px;
     border-radius: 12px;
     background-color: rgba(255, 255, 255, 0.4);
     border: none;

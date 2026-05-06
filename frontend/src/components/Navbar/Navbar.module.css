@@ -19,7 +19,6 @@
 
     .tituloNavbar {
     font-size: 20px;
-    color: #5B2D6E;
     font-weight: bold;
     }
 
@@ -27,43 +26,79 @@
     color: #5C5270;
     }
 
+    .btnReserva {
+    background-color: #5B2D6E !important;
+    color: #ffffff !important; 
+    padding: 8px 20px !important;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    }
+
+    .btnReserva:hover {
+    background-color: #4a245a; /* Slightly darker purple */
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 10px rgba(91, 45, 110, 0.2);
+    }
+
     /* ================================
     RESPONSIVE MÓVIL
     ================================ */
     @media (max-width: 991px) {
+        .listaNave{
+            padding: 2em !important;
+        }
+        
+        .navbarGlass {
+            top: 0 !important;
+            height: auto !important;
+            width: 100% !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            border-radius: 12px !important;
+        }
 
-    .navbarGlass {
-        top: 0 !important;
-        height: auto !important;
-    }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+        }
 
-    /* Fondo cuando el menú está abierto */
-    :global(.navbar-collapse.show),
-    :global(.navbar-collapse.collapsing) {
-        padding: 16px;
-        border-radius: 12px;
-        margin-top: 10px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
+        .navbar-brand img {
+            height: 24px !important;
+        }
 
-    /* Links visibles en móvil */
-    :global(.navbar-collapse .nav-link) {
-        color: #5C5270 !important;
-        padding: 10px 16px;
-        border-radius: 12px;
-        text-align: center;
-    }
+        .navbar-toggler {
+            padding: 4px 8px;
+            min-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    :global(.navbar-collapse .nav-link:hover) {
-        background-color: rgba(91, 45, 110, 0.08);
-        color: #5B2D6E !important;
-    }
+        .container {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
 
-    /* Íconos centrados en móvil */
-    :global(.navbar-collapse .nav-item) {
-        display: flex;
-        justify-content: center;
-    }
+        :global(.navbar-collapse.show),
+        :global(.navbar-collapse.collapsing) {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .tituloNavbar {
+            font-size: 26px;
+            white-space: nowrap;
+        }
     }
 
     .navbarVisible {

@@ -1,75 +1,117 @@
     import { useState, useEffect } from 'react';
     import styles from './ModalReserva.module.css';
 
-    const ESTADO_INICIAL = {
-    nombreYapellido: '',
-    email: '',
-    telefono: '',
-    fecha: '',
-    hora: '',
-    mensaje: '',
-    };
+    export default function ModalReserva({ sala, espacioId, sede, onCerrar, onConfirmar }) {
 
-    export default function ModalReserva({ sala, sede, onCerrar, onConfirmar }) {
-    const [form, setForm] = useState(ESTADO_INICIAL);
+    // ── Leer usuario desde localStorage (guardado en el login) ──
+    const usuarioGuardado = JSON.parse(localStorage.getItem('usuario') || '{}');
+
+    const [form, setForm] = useState({
+        nombreYapellido: usuarioGuardado.nombre  || '',
+        email:           usuarioGuardado.correo  || '',
+        telefono:        '',
+        fecha:           '',
+        hora:            '',
+        mensaje:         '',
+    });
+
+    const [loading,  setLoading]  = useState(false);
+    const [apiError, setApiError] = useState('');
 
     // Bloquear scroll del body cuando el modal está abierto
     useEffect(() => {
         document.body.style.overflow = 'hidden';
-        return () => {
-        document.body.style.overflow = '';
-        };
+        return () => { document.body.style.overflow = ''; };
     }, []);
 
     function handleChange(e) {
         const { name, value } = e.target;
+        setApiError('');
         setForm((prev) => ({ ...prev, [name]: value }));
     }
 
     function validar() {
         const { nombreYapellido, email, telefono, fecha, hora, mensaje } = form;
 
-        if (!nombreYapellido.trim() || !email.trim() || !telefono.trim() || !fecha.trim() || !hora.trim() || !mensaje.trim()) {
-        alert('Por favor, completa todos los campos obligatorios.');
-        return false;
+        if (!nombreYapellido.trim() || !email.trim() || !telefono.trim() ||
+            !fecha.trim() || !hora.trim() || !mensaje.trim()) {
+        return 'Por favor, completa todos los campos obligatorios.';
         }
-
         if (/\d/.test(nombreYapellido)) {
-        alert('El nombre no puede contener números.');
-        return false;
+        return 'El nombre no puede contener números.';
         }
-
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('El email no tiene un formato válido.');
-        return false;
+        return 'El email no tiene un formato válido.';
         }
-
         if (!/^\d+$/.test(telefono)) {
-        alert('El teléfono solo puede contener números.');
-        return false;
+        return 'El teléfono solo puede contener números.';
         }
-
         if (telefono.length !== 9 && telefono.length !== 11) {
-        alert('El teléfono debe tener 9 u 11 caracteres.');
-        return false;
+        return 'El teléfono debe tener 9 u 11 dígitos.';
+        }
+        return null; // sin errores
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const errorValidacion = validar();
+        if (errorValidacion) {
+        setApiError(errorValidacion);
+        return;
         }
 
-        return true;
-    }
+        setLoading(true);
+        setApiError('');
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        if (!validar()) return;
+        try {
+        const token = localStorage.getItem('token');
 
-        onConfirmar({
-        ...form,
-        ubicacion: sede,
-        espacio: sala.nombre,
-        tipo: sala.tipo,
+        console.log('Datos a enviar:', {
+    fecha   : form.fecha,
+    hora    : form.hora,
+    mensaje : form.mensaje,
+    usuarios : usuarioGuardado.id,
+    espacios : espacioId,
+    salas    : sala._id,
+});
+
+        const response = await fetch('http://localhost:3001/reservas', {
+            method : 'POST',
+            headers: {
+            'Content-Type' : 'application/json'            },
+            body: JSON.stringify({
+            fecha   : form.fecha,
+            hora    : form.hora,
+            mensaje : form.mensaje,
+            usuarios: usuarioGuardado.id,   // _id del usuario logueado
+            espacios : espacioId,            // _id del documento Espacio
+            salas    : sala._id,             // _id de la sala (subdocumento)
+            }),
         });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            setApiError(data.mensaje || 'Error al crear la reserva. Intenta nuevamente.');
+            return;
+        }
+
+        // ✅ Reserva creada — notifica al padre con los datos para mostrar en pantalla
+        onConfirmar({
+            ...form,
+            ubicacion : sede,
+            espacio   : sala.nombre,
+            tipo      : sala.tipo,
+        });
+
+        } catch (err) {
+        setApiError('No se pudo conectar con el servidor. Verifica tu conexión.');
+        } finally {
+        setLoading(false);
+        }
     }
 
-    // Cerrar al hacer clic en el overlay (fuera del modal)
     function handleOverlayClick(e) {
         if (e.target === e.currentTarget) onCerrar();
     }
@@ -89,6 +131,13 @@
             {/* Body */}
             <div className={styles.modalBody}>
             <p className={styles.espacioSeleccionado}>📍 {sala.nombre}</p>
+
+            {/* Error de API o validación */}
+            {apiError && (
+                <div className={styles.apiErrorBanner}>
+                {apiError}
+                </div>
+            )}
 
             <form onSubmit={handleSubmit} className={styles.formulario}>
 
@@ -174,8 +223,12 @@
                 />
                 </div>
 
-                <button type="submit" className={styles.botonFormulario}>
-                Confirmar reserva
+                <button
+                type="submit"
+                className={styles.botonFormulario}
+                disabled={loading}
+                >
+                {loading ? 'Enviando reserva...' : 'Confirmar reserva'}
                 </button>
 
             </form>
