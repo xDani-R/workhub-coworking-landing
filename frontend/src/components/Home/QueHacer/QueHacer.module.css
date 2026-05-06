@@ -1,8 +1,16 @@
 .container {
   padding: 80px 10%;
-  background-color: #ffffff; /* Contrast against the Gallery background */
   font-family: 'Inter', sans-serif;
-  text-align: center;
+  max-width: 1400px; /* Prevents full-screen stretch */
+  margin: 0 auto;   /* Centers the container */
+}
+
+/* Top Section: Light Purple Background */
+.topSection {
+  background-color: #f5f0ff;
+  padding: 60px 40px;
+  border-radius: 16px;
+  margin-bottom: 0; /* No gap needed since bottom section is attached */
 }
 
 .mainTitle {
@@ -10,6 +18,10 @@
   font-weight: 700;
   color: #222;
   margin-bottom: 60px;
+  text-align: left; 
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cardsGrid {
@@ -20,7 +32,7 @@
 }
 
 .card {
-  background-color: #e0e0e0; /* The light grey background from your image */
+  background-color: #ffffff;
   padding: 40px 30px;
   border-radius: 12px;
   flex: 1;
@@ -30,6 +42,7 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
@@ -40,16 +53,17 @@
   margin-bottom: 25px;
 }
 
-.square {
-  width: 45px;
-  height: 45px;
-  background-color: #000; /* Placeholder for your icon */
-}
-
 .iconPlaceholder img {
   width: 90px;
   height: 90px;
   object-fit: contain;
+}
+
+.square {
+  width: 90px;
+  height: 90px;
+  background-color: #6a1b9a;
+  border-radius: 8px;
 }
 
 .cardTitle {
@@ -66,12 +80,54 @@
   font-weight: 400;
 }
 
+/* Bottom Section: Lighter Purple Background */
+.bottomSection {
+  background-color: #faf6ff; /* Even lighter than top */
+  padding: 60px 40px;
+  border-radius: 16px;
+  margin-top: 0; /* Attached to top section */
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.ctaButton {
+  background-color: #5B2D6E;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: #4a148c;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+  .container {
+    padding: 40px 5%;
+  }
+
+  .topSection,
+  .bottomSection {
+    padding: 40px 20px;
+    border-radius: 12px;
+  }
+
   .mainTitle {
     font-size: 2.2rem;
+    margin-bottom: 40px;
   }
-  
+
   .cardsGrid {
     flex-direction: column;
     align-items: center;
@@ -79,5 +135,15 @@
 
   .card {
     width: 100%;
+    max-width: 100%;
+  }
+
+  .ctaTitle {
+    font-size: 1.6rem;
+  }
+
+  .ctaButton {
+    padding: 12px 24px;
+    font-size: 1rem;
   }
 }
