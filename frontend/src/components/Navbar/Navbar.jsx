@@ -1,6 +1,6 @@
     import { useState, useEffect } from 'react';
     import styles from './Navbar.module.css';
-    import logo from '../../assets/img/logo_coworkhub.png';
+    import logo from '../../assets/img/logo_coworkhub_purple.png';
 
     const Navbar = () => {
     const [visible, setVisible] = useState(true);
