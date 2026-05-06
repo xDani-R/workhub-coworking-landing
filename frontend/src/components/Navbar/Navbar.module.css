@@ -1,112 +1,215 @@
-    /* ================================
-    NAVBAR
-    ================================ */
+/* ================================
+   NAVBAR
+================================ */
 
-    .navbarGlass {
-    background-color: rgba(255, 255, 255, 0.493);
-    backdrop-filter: blur(20px);
+.navbarGlass {
+  background-color: rgba(255, 255, 255, 0.493);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  top: 5px;
+  height: 60px;
+  width: 80vw;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.scrollable {
+  transition: top 0.3s;
+}
+
+.tituloNavbar {
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.listaNave a {
+  color: #5C5270;
+}
+
+.btnReserva {
+  background-color: #5B2D6E !important;
+  color: #ffffff !important;
+  padding: 8px 20px !important;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btnReserva:hover {
+  background-color: #4a245a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(91, 45, 110, 0.2);
+}
+
+/* ================================
+   VISIBLE / HIDDEN (scroll)
+================================ */
+
+.navbarVisible {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.navbarHidden {
+  transform: translateY(-200%);
+  transition: transform 0.3s ease;
+}
+
+/* ================================
+   BOTONES LOGIN / LOGOUT
+================================ */
+
+.btnLogin {
+  border: 2px solid #5B2D6E;
+  color: #5B2D6E !important;
+  padding: 8px 20px !important;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btnLogin:hover {
+  background-color: #5B2D6E;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(91, 45, 110, 0.2);
+}
+
+.btnLogout {
+  background: none;
+  border: 2px solid #5B2D6E;
+  color: #ffffff !important;
+  padding: 8px 20px !important;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btnLogout:hover {
+  background-color: #6e3885;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(192, 57, 43, 0.2);
+}
+
+/* ================================
+   TABLETS ANCHOS / NOTEBOOKS
+   PEQUEÑOS (992px – 1200px)
+   Los items no caben en 80vw
+================================ */
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  .navbarGlass {
+    width: 95vw;
+  }
+
+  .tituloNavbar {
+    font-size: 17px;
+  }
+
+  .listaNave {
+    gap: 0 !important;
+  }
+
+  .listaNave :global(.nav-link) {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    font-size: 14px;
+  }
+
+  .btnReserva,
+  .btnLogin,
+  .btnLogout {
+    padding: 6px 12px !important;
+    font-size: 14px;
+  }
+}
+
+/* ================================
+   MÓVIL Y TABLET
+   (hamburguesa activa, < 992px)
+================================ */
+
+@media (max-width: 991px) {
+  .navbarGlass {
+    top: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 0 12px 12px !important;
+  }
+
+  .tituloNavbar {
+    font-size: 18px;
+  }
+
+  :global(.navbar-collapse.show),
+  :global(.navbar-collapse.collapsing) {
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    top: 5px;
-    height: 60px;
-    width: 80vw;
-    margin: 0 auto;
-    border-radius: 12px;
-    }
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
 
-    .scrollable {
-    transition: top 0.3s;
-    }
+  .listaNave {
+    padding: 1.25rem 1.5rem !important;
+    gap: 4px !important;
+  }
 
-    .tituloNavbar {
-    font-size: 20px;
-    font-weight: bold;
-    }
+  .listaNave :global(.nav-link) {
+    padding: 10px 12px !important;
+    border-radius: 8px;
+    font-size: 15px;
+  }
 
-    .listaNave a {
-    color: #5C5270;
-    }
+  .listaNave :global(.nav-link:hover) {
+    background-color: rgba(91, 45, 110, 0.07);
+  }
 
-    .btnReserva {
-    background-color: #5B2D6E !important;
-    color: #ffffff !important; 
-    padding: 8px 20px !important;
-    border-radius: 12px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    }
+  .btnReserva,
+  .btnLogin {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 4px;
+  }
 
-    .btnReserva:hover {
-    background-color: #4a245a; /* Slightly darker purple */
-    transform: translateY(-2px); /* Subtle lift */
-    box-shadow: 0 4px 10px rgba(91, 45, 110, 0.2);
-    }
+  .btnLogout {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 4px;
+  }
+}
 
-    /* ================================
-    RESPONSIVE MÓVIL
-    ================================ */
-    @media (max-width: 991px) {
-        .listaNave{
-            padding: 2em !important;
-        }
-        
-        .navbarGlass {
-            top: 0 !important;
-            height: auto !important;
-            width: 100% !important;
-            margin: 0 !important;
-            border-radius: 0 !important;
-            border-radius: 12px !important;
-        }
+/* ================================
+   MÓVIL PEQUEÑO (≤ 400px)
+   Nets hub y pantallas angostas
+================================ */
 
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            line-height: 1;
-        }
+@media (max-width: 400px) {
+  .tituloNavbar {
+    font-size: 15px;
+  }
 
-        .navbar-brand img {
-            height: 24px !important;
-        }
+  /* Oculta "- Laboratorio creativo" si se cuela en pantallas muy angostas */
+  .tituloNavbar :global(span) {
+    display: none !important;
+  }
 
-        .navbar-toggler {
-            padding: 4px 8px;
-            min-height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container {
-            padding-left: 12px;
-            padding-right: 12px;
-        }
-
-        :global(.navbar-collapse.show),
-        :global(.navbar-collapse.collapsing) {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: absolute;
-            top: 60px;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-
-        .tituloNavbar {
-            font-size: 26px;
-            white-space: nowrap;
-        }
-    }
-
-    .navbarVisible {
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-    }
-
-    .navbarHidden {
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
-    }
+  .navbarGlass {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}

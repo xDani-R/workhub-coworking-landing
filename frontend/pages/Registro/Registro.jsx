@@ -274,7 +274,7 @@
 
             <p className={styles.loginLine}>
                 ¿Ya tienes cuenta?{' '}
-                <a className={styles.loginLink} href="#">Inicia sesión</a>
+                <a className={styles.loginLink} href="/login">Inicia sesión</a>
             </p>
             </div>
         </div>

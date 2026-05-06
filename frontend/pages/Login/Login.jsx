@@ -183,7 +183,7 @@
 
             <p className={styles.registerLine}>
                 ¿No tienes cuenta?{' '}
-                <a className={styles.registerLink} href="/register">Regístrate</a>
+                <a className={styles.registerLink} href="/registro">Regístrate</a>
             </p>
             </div>
         </div>
