@@ -5,8 +5,9 @@
   margin-top: 2rem;
   padding-left: 120px;
   padding-right: 120px;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 80px;
+  padding-bottom: 0px;
+    /* padding-bottom: 0px; anterior 60px tmb padding-top */
 }
 
 .search-input-wrapper {
@@ -39,7 +40,7 @@
   .search-filter-container {
     flex-direction: column;
     gap: 0.75rem;
-    padding: 0%;
+    padding: 0;
   }
 
   .search-input-wrapper,

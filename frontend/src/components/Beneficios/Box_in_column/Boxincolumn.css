@@ -1,0 +1,24 @@
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+}
+
+.Boxincolumn-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px auto;
+    gap: 20px;
+    font-family: 'Inter';
+}
+
+.Boxincolumn-container h3 {
+    font-size: 20px;
+    font-style: semi-bold;
+}
+
+.Boxincolumn-container p {
+    font-size: 13px;
+    font-style: light;
+}
+
