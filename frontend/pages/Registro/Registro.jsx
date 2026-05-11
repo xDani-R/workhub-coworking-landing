@@ -10,33 +10,23 @@
     HELPERS DE VALIDACIÓN
     ================================ */
 
-    // Auto-formatea el RUT mientras el usuario escribe → 12.345.678-9
     const formatRut = (value) => {
-    // Elimina todo lo que no sea dígito o K/k
     const clean = value.replace(/[^0-9kK]/g, '').toUpperCase();
     if (clean.length === 0) return '';
-
-    const body = clean.slice(0, -1);   // sin el dígito verificador
-    const dv   = clean.slice(-1);      // dígito verificador
-
-    // Agrega puntos cada 3 dígitos desde la derecha
+    const body = clean.slice(0, -1);
+    const dv   = clean.slice(-1);
     const bodyFormatted = body.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-
     return body.length > 0 ? `${bodyFormatted}-${dv}` : dv;
     };
 
-    // Valida que el formato sea X.XXX.XXX-X o XX.XXX.XXX-X
-    const isValidRutFormat = (rut) => {
-    return /^\d{1,2}\.\d{3}\.\d{3}-[\dkK]$/.test(rut);
-    };
+    const isValidRutFormat = (rut) =>
+    /^\d{1,2}\.\d{3}\.\d{3}-[\dkK]$/.test(rut);
 
-    const isValidEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    };
+    const isValidEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    const isValidPassword = (password) => {
-    return /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
-    };
+    const isValidPassword = (password) =>
+    /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
 
     /* ================================
     COMPONENTE
@@ -45,27 +35,26 @@
     const Registro = () => {
     const [form, setForm] = useState({
         nombre:     '',
-        apellido:   '',
         rut:        '',
         correo:     '',
         contrasena: '',
         confirmar:  '',
     });
 
-    const [errors,  setErrors]  = useState({});
-    const [touched, setTouched] = useState({});
+    const [errors,   setErrors]   = useState({});
+    const [touched,  setTouched]  = useState({});
+    const [loading,  setLoading]  = useState(false);
+    const [apiError, setApiError] = useState('');
+    const [success,  setSuccess]  = useState(false);
 
     /* ── Actualizar campo ── */
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-
+        const { name, value } = e.target;
+        setApiError('');
         if (name === 'rut') {
         setForm((prev) => ({ ...prev, rut: formatRut(value) }));
         } else {
-        setForm((prev) => ({
-            ...prev,
-            [name]: type === 'checkbox' ? checked : value,
-        }));
+        setForm((prev) => ({ ...prev, [name]: value }));
         }
     };
 
@@ -76,7 +65,7 @@
         setErrors((prev) => ({ ...prev, ...getFieldError(name, form) }));
     };
 
-    /* ── Retorna el error de un campo (o lo elimina) ── */
+    /* ── Retorna el error de un campo ── */
     const getFieldError = (name, currentForm) => {
         switch (name) {
         case 'nombre':
@@ -84,54 +73,39 @@
             ? { nombre: undefined }
             : { nombre: 'El nombre es requerido.' };
 
-        case 'apellido':
-            return currentForm.apellido.trim()
-            ? { apellido: undefined }
-            : { apellido: 'El apellido es requerido.' };
-
         case 'rut':
-            if (!currentForm.rut)
-            return { rut: 'El RUT es requerido.' };
-            if (!isValidRutFormat(currentForm.rut))
-            return { rut: 'Formato inválido. Ejemplo: 12.345.678-9' };
+            if (!currentForm.rut)                   return { rut: 'El RUT es requerido.' };
+            if (!isValidRutFormat(currentForm.rut)) return { rut: 'Formato inválido. Ejemplo: 12.345.678-9' };
             return { rut: undefined };
 
         case 'correo':
-            if (!currentForm.correo)
-            return { correo: 'El correo es requerido.' };
-            if (!isValidEmail(currentForm.correo))
-            return { correo: 'Ingresa un correo válido.' };
+            if (!currentForm.correo)                return { correo: 'El correo es requerido.' };
+            if (!isValidEmail(currentForm.correo))  return { correo: 'Ingresa un correo válido.' };
             return { correo: undefined };
 
         case 'contrasena':
-            if (!currentForm.contrasena)
-            return { contrasena: 'La contraseña es requerida.' };
-            if (!isValidPassword(currentForm.contrasena))
-            return { contrasena: 'Mínimo 8 caracteres, una mayúscula y un número.' };
+            if (!currentForm.contrasena)                  return { contrasena: 'La contraseña es requerida.' };
+            if (!isValidPassword(currentForm.contrasena)) return { contrasena: 'Mínimo 8 caracteres, una mayúscula y un número.' };
             return { contrasena: undefined };
 
         case 'confirmar':
-            if (!currentForm.confirmar)
-            return { confirmar: 'Debes confirmar tu contraseña.' };
-            if (currentForm.confirmar !== currentForm.contrasena)
-            return { confirmar: 'Las contraseñas no coinciden.' };
+            if (!currentForm.confirmar)                       return { confirmar: 'Debes confirmar tu contraseña.' };
+            if (currentForm.confirmar !== currentForm.contrasena) return { confirmar: 'Las contraseñas no coinciden.' };
             return { confirmar: undefined };
-
 
         default:
             return {};
         }
     };
 
-    /* ── Submit ── */
-    const handleSubmit = (e) => {
+    /* ── Submit → fetch al backend ── */
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Marcar todos como tocados
+        // Marcar todos como tocados y validar
         const allFields = Object.keys(form);
         setTouched(allFields.reduce((acc, k) => ({ ...acc, [k]: true }), {}));
 
-        // Recolectar todos los errores
         const allErrors = allFields.reduce((acc, name) => {
         const partial = getFieldError(name, form);
         const key = Object.keys(partial)[0];
@@ -142,44 +116,93 @@
         setErrors(allErrors);
         if (Object.keys(allErrors).length > 0) return;
 
-        // ✅ Todo válido → conectar con backend
-        console.log('Formulario válido:', {
-        nombre:     form.nombre,
-        rut:        form.rut,
-        correo:     form.correo,
-        contrasena: form.contrasena,
+        setLoading(true);
+        setApiError('');
+
+        try {
+        const response = await fetch('http://localhost:3001/usuarios/registrar', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+            // El backend recibe un solo campo "nombre" → unimos nombre 
+            nombre:     `${form.nombre.trim()}`,
+            rut:        form.rut,
+            correo:     form.correo,
+            contrasena: form.contrasena,
+            }),
         });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            // El backend devuelve { mensaje: '...' } en errores (ej: correo ya registrado)
+            setApiError(data.mensaje || 'Error al crear la cuenta. Intenta nuevamente.');
+            return;
+        }
+
+        // ✅ Registro exitoso
+        setSuccess(true);
+
+        } catch (err) {
+        setApiError('No se pudo conectar con el servidor. Verifica tu conexión.');
+        } finally {
+        setLoading(false);
+        }
     };
 
-    /* ── Renderiza el mensaje de error si el campo fue tocado ── */
     const fieldError = (name) =>
         touched[name] && errors[name]
         ? <p className={styles.errorMsg}>{errors[name]}</p>
         : null;
 
-    /* ── Clase condicional de input con error ── */
     const inputClass = (name) =>
         `${styles.input} ${touched[name] && errors[name] ? styles.inputError : ''}`;
+
+    /* ── Pantalla de éxito ── */
+    if (success) {
+        return (
+        <div className={styles.page}>
+            <div className={styles.leftPanel}>
+            <div className={styles.logoLockup}><LogoIcon /></div>
+            <div className={styles.leftCopy}>
+                <h2 className={styles.leftHeading}>Tu espacio de trabajo te espera</h2>
+                <p className={styles.leftSubtext}>
+                Únete a Workhub y empieza a reservar salas, gestionar tu equipo y colaborar en conjunto.
+                </p>
+            </div>
+            <p className={styles.leftFooter}>© 2026 Workhub. Todos los derechos reservados.</p>
+            </div>
+            <div className={styles.rightPanel}>
+            <div className={styles.formBox}>
+                <div className={styles.successBox}>
+                <div className={styles.successIcon}>✓</div>
+                <h2 className={styles.successHeading}>¡Cuenta creada!</h2>
+                <p className={styles.successText}>
+                    Tu cuenta fue registrada exitosamente. Ya puedes iniciar sesión.
+                </p>
+                <a className={styles.btnPrimary} href="/login">
+                    Ir a iniciar sesión
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        );
+    }
 
     return (
         <div className={styles.page}>
 
         {/* ── Left panel ── */}
         <div className={styles.leftPanel}>
-            <div className={styles.logoLockup}>
-            <LogoIcon />
-            </div>
-
+            <div className={styles.logoLockup}><LogoIcon /></div>
             <div className={styles.leftCopy}>
             <h2 className={styles.leftHeading}>Tu espacio de trabajo te espera</h2>
             <p className={styles.leftSubtext}>
                 Únete a Workhub y empieza a reservar salas, gestionar tu equipo y colaborar en conjunto.
             </p>
             </div>
-
-            <p className={styles.leftFooter}>
-            © 2026 Workhub. Todos los derechos reservados.
-            </p>
+            <p className={styles.leftFooter}>© 2026 Workhub. Todos los derechos reservados.</p>
         </div>
 
         {/* ── Right panel ── */}
@@ -188,21 +211,22 @@
             <h1 className={styles.formHeading}>Crear cuenta</h1>
             <p className={styles.formSub}>Completa tus datos para comenzar</p>
 
-            {/* Nombre / Apellido */}
+            {/* Banner de error de API */}
+            {apiError && (
+                <div className={styles.apiErrorBanner}>
+                {apiError}
+                </div>
+            )}
+
+            {/* Nombre */}
             <div className={styles.fieldGroup}>
-                <div>
                 <label className={styles.label}>Nombre</label>
                 <input
-                    className={inputClass('nombre')}
-                    type="text"
-                    name="nombre"
-                    placeholder="Ana"
-                    value={form.nombre}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                className={inputClass('nombre')}
+                type="text" name="nombre" placeholder="Ana"
+                value={form.nombre} onChange={handleChange} onBlur={handleBlur}
                 />
                 {fieldError('nombre')}
-                </div>
             </div>
 
             {/* RUT */}
@@ -210,12 +234,8 @@
                 <label className={styles.label}>RUT</label>
                 <input
                 className={inputClass('rut')}
-                type="text"
-                name="rut"
-                placeholder="12.345.678-9"
-                value={form.rut}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                type="text" name="rut" placeholder="12.345.678-9"
+                value={form.rut} onChange={handleChange} onBlur={handleBlur}
                 maxLength={12}
                 />
                 {fieldError('rut')}
@@ -226,12 +246,8 @@
                 <label className={styles.label}>Correo electrónico</label>
                 <input
                 className={inputClass('correo')}
-                type="email"
-                name="correo"
-                placeholder="tucorreo@ejemplo.com"
-                value={form.correo}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                type="email" name="correo" placeholder="tucorreo@ejemplo.com"
+                value={form.correo} onChange={handleChange} onBlur={handleBlur}
                 />
                 {fieldError('correo')}
             </div>
@@ -241,13 +257,14 @@
                 <label className={styles.label}>Contraseña</label>
                 <input
                 className={inputClass('contrasena')}
-                type="password"
-                name="contrasena"
-                placeholder="Mínimo 8 caracteres"
-                value={form.contrasena}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                type="password" name="contrasena" placeholder="Mínimo 8 caracteres"
+                value={form.contrasena} onChange={handleChange} onBlur={handleBlur}
                 />
+                {!touched.contrasena && (
+                <p className={styles.passwordHint}>
+                    Usa al menos 8 caracteres, una mayúscula y un número.
+                </p>
+                )}
                 {fieldError('contrasena')}
             </div>
 
@@ -256,20 +273,18 @@
                 <label className={styles.label}>Confirmar contraseña</label>
                 <input
                 className={inputClass('confirmar')}
-                type="password"
-                name="confirmar"
-                placeholder="••••••••"
-                value={form.confirmar}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                type="password" name="confirmar" placeholder="••••••••"
+                value={form.confirmar} onChange={handleChange} onBlur={handleBlur}
                 />
                 {fieldError('confirmar')}
             </div>
 
-
-
-            <button className={styles.btnPrimary} onClick={handleSubmit}>
-                Crear cuenta
+            <button
+                className={styles.btnPrimary}
+                onClick={handleSubmit}
+                disabled={loading}
+            >
+                {loading ? 'Creando cuenta...' : 'Crear cuenta'}
             </button>
 
             <p className={styles.loginLine}>
