@@ -1,42 +1,212 @@
 .container-welcome {
     display: flex;
-    flex-direction: column;
-    background-color: #F5F5F5;
-    margin: 136px auto 0 auto;
+    flex-direction: row;
+    /* background-color: #F5F5F5; */
+    margin: 55px auto;
+    margin-left: 60px;
+    margin-right: 60px;
     max-width: 1200px;
     border-radius: 25px;
     padding: 40px;
+    height: 405px;
+    
+}
+
+.welcome-image {
+    position: relative;
+    height: 500px;
+    z-index: 1;
+    border-radius: 200px 0 0;
+    transform: translateY(-50px);
+    margin-right: -100px; 
+}
+
+.container-welcome button {
+    background-color: #643278;
+    padding: 10px;
+    width: auto;
+}
+
+purple {
+    color: #643278;
+}
+
+darkpurple {
+    color: #643278;
+}
+
+
+.welcome2textpart {
+    background-color: #F9F8FF;
+    padding : 40px;
+}
+.containerbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #F9F8FF;
+    border-radius: 20px;
+    padding: 50px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.titlebeneficios {
+    align-self: baseline;
+    font-family: 'Inter';
+    font-size: 31px;
+    font-style: bold;
 }
 
 .beneficios-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 150px;
-    padding-right: 150px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
-/* Grid dinámico */
-.beneficios-container .row {
+.container-footer {
+    background-color: #F9F8FF;
+    border-radius: 25px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 90px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: 'Inter';
+    height: 330px;
+}
+
+.graypart {
+    /* background-color: #F9F8FF; */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    column-gap: 10rem;
+    align-items: center;
+
 }
 
-.beneficios-container .col-12.col-md-6.col-lg-6 {
-    flex: 0 0 auto;
-    width: auto;
+.pop {
+    display: flex;
+    justify-content: center;
+    background-color: #E5DEFF;
+    width: 100px;
+    border-radius: 20px;
 }
 
-/* Responsive para móviles */
+.bar-welcome-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.bar-welcome-footer button {
+    background-color: #F4F1FB;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #643278;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.title-footer {
+    font-size: 24px;
+    font-weight: 800;
+    width: 270px;
+}
+
+.subtitle-footer {
+    font-size: 14px;
+    width: 270px;
+}
+
+.cardsfooterpart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+}
+
+
 @media (max-width: 768px) {
-    .beneficios-container {
-        padding: 10px;
+    /* Eliminar TODOS los márgenes laterales */
+    body {
+        overflow-x: hidden; /* Prevenir scroll horizontal */
     }
     
-    .beneficios-container .col-12.col-md-6.col-lg-6 {
+    .beneficios-container {
+        padding: 10px;
+        margin: 0 !important; /* Ya lo tienes, pero asegúrate que sea !important */
+    }
+    
+    /* Eliminar gutters de Bootstrap row */
+    .beneficios-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Eliminar padding de columnas Bootstrap */
+    .beneficios-container [class*='col-'] {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    
+    .containerbox {
+        padding: 15px;
         width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .container-welcome {
+        margin: 0;
+        padding: 20px; /* Cambia de 0 a 20px para dar algo de aire */
+        width: 100%;
+    }
+
+    .welcome-image {
+        display: none; /* Mejor que width: 0% */
+    }
+    
+    .vr {
+        display: none; /* Mejor que color: transparent */
+    }
+
+    .welcome-image2 {
+        display: none; /* Mejor que width: 0% */
+    }
+
+    .container-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        padding: 20px; /* Agrega padding interno */
+        height: auto;
+        width: 100%;
+    }
+
+    .graypart {
+        background-color: transparent;
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+    
+    .cardsfooterpart {
+        margin: 0;
+        padding: 10px;
+        flex-wrap: wrap;
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+    
+    /* Asegurar que títulos no se salgan */
+    .titlebeneficios {
+        font-size: 24px;
+        padding: 0 10px;
     }
 }
 
@@ -44,6 +214,12 @@
 @media (max-width: 1240px) {
     .beneficios-container {
         padding: 30px;
+    }
+    .containerbox {
+        padding: 5px;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }
 
